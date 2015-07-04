@@ -1,0 +1,482 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"rep",
+				"repldef"
+			],
+			[
+				"r",
+				"repldef"
+			],
+			[
+				"H",
+				"HIGH"
+			],
+			[
+				"b",
+				"board"
+			],
+			[
+				"for",
+				"forward"
+			],
+			[
+				"E",
+				"E1"
+			],
+			[
+				"De",
+				"DeployPackageInDVL"
+			],
+			[
+				"GFM",
+				"GFMDeployPipeline"
+			],
+			[
+				"DVL",
+				"DVLApproval"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "hello.js",
+			"settings":
+			{
+				"buffer_size": 160,
+				"line_ending": "Unix",
+				"name": "var five = require(\"johnny-five\");"
+			}
+		},
+		{
+			"contents": "/*!\n * express\n * Copyright(c) 2009-2013 TJ Holowaychuk\n * Copyright(c) 2013 Roman Shtylman\n * Copyright(c) 2014-2015 Douglas Christopher Wilsonnpm install -g bowernpm install -g bower\n * MIT Licensed\n */\n\n'use strict';\n\nmodule.exports = require('./lib/express');\n",
+			"file": "node_modules/express/index.js",
+			"file_size": 224,
+			"file_write_time": 130804812892590896,
+			"settings":
+			{
+				"buffer_size": 264,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 311.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"view",
+				"View: Toggle Tabs"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Co",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"package ",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"packages",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 416.0
+	},
+	"console":
+	{
+		"height": 308.0,
+		"history":
+		[
+			"npm",
+			"dir",
+			"ls",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Dev/arduino/johnny5/node_modules/express"
+	],
+	"file_history":
+	[
+		"/C/Dev/arduino/johnny5/avanti.js",
+		"/C/Dev/arduino/johnny5/node_modules/socket.io/Readme.md",
+		"/C/Dev/arduino/dfrover/basicscketch/basicscketch.ino",
+		"/C/Users/Geoffrey/Go/src/github.com/geobarteam/go/tour/imports/imports.go",
+		"/C/Users/Geoffrey/Go/src/github.com/user/stringutil/reverse.go",
+		"/C/tools/cygwin/home/Geoffrey/ubuntu64/provision.sh",
+		"/C/tools/cygwin/home/Geoffrey/ubuntu64/Vagrantfile",
+		"/C/Users/Geoffrey/Go/src/github.com/user/hello/hello.go",
+		"/C/Users/Geoffrey/Go/helloworld.go",
+		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/GoSublime/USAGE.md",
+		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/GoSublime/CHANGELOG.md",
+		"/C/tools/cygwin/home/Geoffrey/scriptcraft/skcryptcraft.js",
+		"/C/Dev/scriptcraft/scriptcraft/plugins/greet.js",
+		"/C/Dev/GoSimple/src/Messaging/Test/ClassLibrary1/bin/Debug/MessagingConfigurations.json",
+		"//VAGRANT-2012-R2/chef-repo/webserver.rb",
+		"/C/Users/Geoffrey/SkyDrive/Fluxys/chef/createAzure.cmd",
+		"/C/Dev/technoboy10-snap-nxt-853da2a/Snap-NXT.xml",
+		"/C/chef/cookbooks/webserver/templates/default/Default.htm.erb",
+		"//VAGRANT-2012-R2/chef-repo/cookbooks/learn_chef_iis/metadata.rb",
+		"/C/Users/Geoffrey/Documents/blog/posts/b452421f-cca8-4ff3-a769-c4f7acfbae20.xml",
+		"/C/Users/Geoffrey/Downloads/BlogML.xml",
+		"/C/Users/Geoffrey/Documents/blog/syndication.rss.txt",
+		"/C/Users/Geoffrey/Documents/blog/post1.html",
+		"/C/Dev/GoSimple/src/Logging/Nuget/GoSimple.Logging.nuspec",
+		"/C/Dev/GoSimple/src/Logging/Nuget/GoSimple.Logging.Log4Net.nuspec",
+		"/C/Dev/GoSimple/src/Logging/readmi.html",
+		"/C/Users/Geoffrey/SkyDrive/Fluxys/chef/knife.rb",
+		"/C/chef/webserver/recipes/default.rb",
+		"/C/opscode/chefdk/embedded/dk.rb",
+		"/C/Users/Geoffrey/SkyDrive/Fluxys/chef/cookbooks/webserver/recipes/default.rb",
+		"/C/Users/Geoffrey/SkyDrive/Fluxys/chef/cookbooks/webserver/templates/default/Default.htm.erb",
+		"/C/Dev/GoSimple/src/Logging/Nuget/Build_Logging_Log4Net.ps1",
+		"/C/Dev/GoSimple/src/Logging/Nuget/Build_Logging.ps1",
+		"/C/Users/Geoffrey/Documents/blog/posts/f5888091-0059-4755-aeb8-ae0e032e579b.xml",
+		"/C/Users/Geoffrey/Documents/blog/posts/2acf8b94-eab8-4ce0-9bb1-abd39cb0ef74.xml",
+		"/C/Users/Geoffrey/Documents/blog/posts/2c724949-f69f-41c9-8d59-878d6a1c7394.xml",
+		"/C/Users/Geoffrey/Documents/blog/posts/6044a9ee-84f3-47e4-b8f1-3a59468ea071.xml",
+		"/C/Users/Geoffrey/Documents/blog/posts/0c450522-3ba8-40e1-b860-34fdfb4054a0.xml",
+		"/C/tools/cygwin/home/Geoffrey/VS2015CTP/Vagrantfile",
+		"/H/Geoffrey/Software/VagrantBoxes/Vagrantfile",
+		"/C/tools/cygwin/home/Geoffrey/win2012R2/Vagrantfile",
+		"/C/Dev/DevoSpace/Publish/devospace-package/devospace.nuspec",
+		"/C/Dev/FileZila/tools/chocolateyInstall.ps1",
+		"/C/ProgramData/chocolatey/lib/SublimeText3.3.0.0.3065/tools/chocolateyInstall.ps1",
+		"/C/tools/cygwin/home/Geoffrey/.ssh/known_hosts",
+		"/C/tools/cygwin/home/Geoffrey/VS2015CTP/provision.ps1",
+		"/C/Dev/FLXFramework/Dev/Log4Net/Common/Appender/TcpSyslogAppender.cs",
+		"/C/tools/cygwin/home/Geoffrey/win2012R2/provision.ps1",
+		"/C/tools/cygwin/home/Geoffrey/VS2015CTP/ls",
+		"/C/tools/cygwin/home/Geoffrey/Share/scripts/loop.sh",
+		"/C/tools/cygwin/home/Geoffrey/provision.sh",
+		"/C/tools/cygwin/home/Geoffrey/DockerFile/dockerfile",
+		"/C/tools/cygwin/home/Geoffrey/ubuntu64/Vagrantfile.bak",
+		"/C/Dev/DevoSpace/Publish/Devospace.Web.SourceManifest.xml",
+		"/C/Dev/DevoSpace/Publish/Devospace.Web.SetParameters.xml",
+		"/C/Dev/DevoSpace/Publish/devospace-package/tools/chocolateyInstall.ps1",
+		"/C/Dev/FileZila/geofilezilla.nuspec",
+		"/C/ProgramData/chocolatey/lib/nunit.2.6.3.20140715/tools/chocolateyInstall.ps1",
+		"/C/ProgramData/chocolatey/chocolateyinstall/functions/Chocolatey-Uninstall.ps1",
+		"/C/tools/cygwin/home/Geoffrey/Vagrantfile",
+		"/C/tools/cygwin/home/Geoffrey/centos/Vagrantfile",
+		"/C/ProgramData/chocolatey/lib/git.install.1.9.4.20140929/tools/chocolateyInstall.ps1",
+		"/C/ProgramData/chocolatey/lib/git.1.9.4.20140929/tools/chocolateyInstall.ps1",
+		"/C/ProgramData/chocolatey/lib/git.1.9.5.20150114/tools/chocolateyInstall.ps1",
+		"/C/ProgramData/chocolatey/lib/nodejs.install.0.12.0/tools/chocolateyInstall.ps1",
+		"/C/Users/Geoffrey/Downloads/images.json",
+		"/C/tools/cygwin/home/Geoffrey/Share/scripts/loop2.sh",
+		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/tools/cygwin/home/Geoffrey/Share/loop.sh",
+		"/C/tools/cygwin/home/Geoffrey/mongodb/standalone.pp",
+		"/C/Dev/vagrant/webdeploy/provision-web.ps1",
+		"/C/Dev/vagrant/webdeploy/Vagrantfile",
+		"/C/Dev/vagrant/dsc/Vagrantfile",
+		"/C/Dev/GolfLabelV2/src/BackToOwner.Golf.BackOffice/GolfLabel.BackOffice.lsxproj",
+		"/C/Dev/styles.css",
+		"/C/Dev/BikesLabel/src/BackToOwner.Golf.Web/Global.asax",
+		"/C/Users/Geoffrey/Downloads/ui-grid.info-gh-pages/ui-grid.info-gh-pages/index.html",
+		"/C/tools/cygwin/home/Geoffrey/nginx/provision.sh",
+		"/C/tools/cygwin/home/Geoffrey/nginx/Vagrantfile",
+		"/C/Dev/vagrant/dsc/.vagrant/machines/default/virtualbox/synced_folders",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/C/Users/Geoffrey/SkyDrive/My Books/Dan Simon/Simmons,Dan-[Cantos d'Hyperion-1]Hyperion 1(1989).French.ebook.AlexandriZ.epub",
+		"/C/Dev/vagrant/dsc/provision-dsc.ps1",
+		"/C/Dev/DevoSpace/Publish/devospace-package/tools/deploy.cmd",
+		"/C/Users/Geoffrey/Desktop/btotouringDB.xml",
+		"/C/Dev/Cessna/Trunk/Fluxys.Cessna/Server/DataSources/CSCMData/business_systems.lsml",
+		"/C/Dev/Cessna/Trunk/Fluxys.Cessna/Server/GeneratedArtifacts/EntityG01.cs",
+		"/C/Dev/Cessna/Trunk/Fluxys.Cessna/Server/GeneratedArtifacts/EntityG02.cs",
+		"/C/Dev/Cessna/Trunk/Fluxys.Cessna/Server/GeneratedArtifacts/EntityG03.cs",
+		"/C/Dev/Cessna/Trunk/Fluxys.Cessna/Server/GeneratedArtifacts/EntityG04.cs",
+		"/C/Dev/Cessna/Trunk/Fluxys.Cessna/Server/GeneratedArtifacts/EntityG05.cs",
+		"/C/Dev/Cessna/Trunk/Fluxys.Cessna/Server/GeneratedArtifacts/EntityG06.cs",
+		"/C/Dev/Cessna/Trunk/src/Core/Setup/Engine/Install/app.template.config.xml",
+		"/C/Dev/vagrant/dsc/AddMyFile/localhost.mof",
+		"/C/Dev/DevoSpace/Publish/devospace-package/tools/Devospace.Web.SetParameters.xml",
+		"/C/Dev/DevoSpace/Publish/devospace-package/tools/Devospace.Web.deploy.cmd",
+		"/C/Dev/DevoSpace/Publish/devospace-package/tools/Devospace.Web.SourceManifest.xml",
+		"/C/Dev/DevoSpace/Publish/chocolateytemplates-master/chocolateytemplates-master/_templates/chocolatey/tools/chocolateyInstall.ps1",
+		"/C/Dev/vagrant/packer-windows/windows_2012_r2_geobar.json",
+		"/C/Dev/vagrant/packer-windows/vagrantfile-windows_2012_r2.template",
+		"/C/Dev/vagrant/packer-windows/answer_files/2012_r2_geobar/Autounattend.xml",
+		"/C/Dev/DevoSpace/Publish/chocolateytemplates-master/chocolateytemplates-master/_templates/KetarinChocolateyTemplate.xml",
+		"/C/Dev/DevoSpace/Publish/devospace-package/__NAME__.nuspec",
+		"/C/Dev/vagrant/packer-windows/answer_files/2012_r2_core/Autounattend.xml",
+		"/C/Dev/DevoSpace/Publish/chocolateytemplates-master/chocolateytemplates-master/_templates/chocolateyauto3/__NAME__/__NAME__.nuspec",
+		"/C/tools/cygwin/home/Geoffrey/hubot64/Vagrantfile",
+		"/C/Dev/vagrant/packer-windows/windows_2012.json",
+		"/C/Dev/vagrant/packer-windows/answer_files/2012_r2/Autounattend.xml",
+		"/C/Dev/vagrant/packer-windows/windows_2012_r2.json",
+		"/H/Geoffrey/Microsoft/MSDN/Keys.txt",
+		"/C/tools/cygwin/home/Geoffrey/hubot64/.editorconfig",
+		"/C/tools/cygwin/home/Geoffrey/hubot64/provision.sh",
+		"/C/tools/cygwin/home/Geoffrey/hubot64/myHubot/bin/hubot.cmd",
+		"/C/tools/cygwin/home/Geoffrey/hubot64/myHubot/hubot-scripts.json",
+		"/C/tools/cygwin/home/Geoffrey/hubot/Vagrantfile",
+		"/C/tools/cygwin/home/Geoffrey/hubot/provision.sh",
+		"/C/tools/cygwin/home/Geoffrey/nginx/www/index.html",
+		"/C/tools/cygwin/home/Geoffrey/hubot/.gitattributes",
+		"/C/tools/cygwin/home/Geoffrey/hubot/.editorconfig",
+		"/C/Program Files/Sublime Text 3/.editorconfig",
+		"/C/Program Files/Sublime Text 3/TEST"
+	],
+	"find":
+	{
+		"height": 38.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"board",
+			"(\"",
+			"that",
+			"c77a3415-304a-4175-ab78-1655447f2265",
+			"3a7a3b04-82d4-47b7-a2da-07b5dc0b2d20",
+			"596ad74f-87e2-4a75-8cde-2a2ea4fbb24b",
+			"e64e6fc5-b2fe-4230-84b0-6a6aaba0e6ea",
+			"3a89de05-7bbf-48f0-b759-dd81b6d20ba7",
+			"ParseChocoParams",
+			"$env:chocolateyPackageParameters",
+			"implementation"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"WPF",
+			"WCF",
+			"UnitTesting",
+			"Prism",
+			"MVC"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "hello.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 160,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								160,
+								0
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"auto_name": "var five = require(\"johnny-five\");",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "node_modules/express/index.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 264,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								263,
+								263
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 39.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.9o://C:\\Users\\Geoffrey\\Go":
+	{
+		"height": 142.0
+	},
+	"output.9o://C:\\Users\\Geoffrey\\Go\\src\\github.com\\geobarteam\\go\\tour\\imports":
+	{
+		"height": 282.0
+	},
+	"output.9o://C:\\Users\\Geoffrey\\Go\\src\\github.com\\user\\hello":
+	{
+		"height": 142.0
+	},
+	"output.9o://C:\\Users\\Geoffrey\\Go\\src\\github.com\\user\\stringutil":
+	{
+		"height": 142.0
+	},
+	"output.MarGo-output":
+	{
+		"height": 142.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "johnny5.sublime-project",
+	"replace":
+	{
+		"height": 70.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 105.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 2
+	}
+}
