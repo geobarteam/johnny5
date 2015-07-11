@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"stop",
+				"stopStep"
+			],
+			[
+				"sto",
+				"stopStep"
+			],
+			[
+				"fo",
+				"for	for (…) {…}"
+			],
+			[
+				"sp",
+				"speedR"
+			],
+			[
 				"rep",
 				"repldef"
 			],
@@ -44,22 +60,26 @@
 	"buffers":
 	[
 		{
-			"file": "hello.js",
+			"file": "public/app.js",
 			"settings":
 			{
-				"buffer_size": 160,
-				"line_ending": "Unix",
-				"name": "var five = require(\"johnny-five\");"
+				"buffer_size": 763,
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "/*!\n * express\n * Copyright(c) 2009-2013 TJ Holowaychuk\n * Copyright(c) 2013 Roman Shtylman\n * Copyright(c) 2014-2015 Douglas Christopher Wilsonnpm install -g bowernpm install -g bower\n * MIT Licensed\n */\n\n'use strict';\n\nmodule.exports = require('./lib/express');\n",
-			"file": "node_modules/express/index.js",
-			"file_size": 224,
-			"file_write_time": 130804812892590896,
+			"file": "/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/View In Browser.sublime-settings",
 			"settings":
 			{
-				"buffer_size": 264,
+				"buffer_size": 434,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "node_modules/bower/package.json",
+			"settings":
+			{
+				"buffer_size": 3259,
 				"line_ending": "Unix"
 			}
 		}
@@ -71,10 +91,14 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 311.0,
-		"last_filter": "",
+		"height": 392.0,
+		"last_filter": "packa",
 		"selected_items":
 		[
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
 			[
 				"view",
 				"View: Toggle Tabs"
@@ -106,13 +130,9 @@
 			[
 				"packages",
 				"Package Control: Install Package"
-			],
-			[
-				"packa",
-				"Package Control: Install Package"
 			]
 		],
-		"width": 416.0
+		"width": 528.0
 	},
 	"console":
 	{
@@ -136,13 +156,38 @@
 	},
 	"expanded_folders":
 	[
-		"/C/Dev/arduino/johnny5/node_modules/express"
+		"/C/Dev/arduino/johnny5",
+		"/C/Dev/arduino/johnny5/node_modules",
+		"/C/Dev/arduino/johnny5/node_modules/bower",
+		"/C/Dev/arduino/johnny5/public",
+		"/C/Dev/arduino/johnny5/public/lib",
+		"/C/Dev/arduino/johnny5/public/lib/fontawesome"
 	],
 	"file_history":
 	[
-		"/C/Dev/arduino/johnny5/avanti.js",
-		"/C/Dev/arduino/johnny5/node_modules/socket.io/Readme.md",
+		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/View In Browser/View In Browser.sublime-settings",
+		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/View In Browser.sublime-settings",
+		"/C/Dev/arduino/johnny5/public/lib/fontawesome/font-awesome.min.css",
+		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Dev/arduino/johnny5/node_modules/bower/Gruntfile.js",
+		"/C/Dev/arduino/johnny5/public/package.json",
+		"/C/Dev/arduino/johnny5/public/app.js",
+		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Dev/arduino/johnny5/public/index.html",
+		"/C/Dev/arduino/johnny5/public/lib/bootstrap/README.md",
+		"/C/Users/Geoffrey/Downloads/JohnnyFiveNodeWebkitExample-master/JohnnyFiveNodeWebkitExample-master/app/favicon.ico",
+		"/C/Users/Geoffrey/Downloads/JohnnyFiveNodeWebkitExample-master/JohnnyFiveNodeWebkitExample-master/app/index.html",
+		"/C/Dev/arduino/johnny5/ping.js",
+		"/C/Dev/arduino/johnny5/.bowerrc",
 		"/C/Dev/arduino/dfrover/basicscketch/basicscketch.ino",
+		"/C/Dev/arduino/johnny5/server.js",
+		"/C/Dev/arduino/johnny5/accelerometer.js",
+		"/C/Dev/arduino/johnny5/avanti.js",
+		"/C/Users/Geoffrey/Downloads/ping.fzz",
+		"/C/Dev/arduino/johnny5/bower.json",
+		"/C/Dev/arduino/johnny5/node_modules/socket.io/Readme.md",
 		"/C/Users/Geoffrey/Go/src/github.com/geobarteam/go/tour/imports/imports.go",
 		"/C/Users/Geoffrey/Go/src/github.com/user/stringutil/reverse.go",
 		"/C/tools/cygwin/home/Geoffrey/ubuntu64/provision.sh",
@@ -207,7 +252,6 @@
 		"/C/ProgramData/chocolatey/lib/nodejs.install.0.12.0/tools/chocolateyInstall.ps1",
 		"/C/Users/Geoffrey/Downloads/images.json",
 		"/C/tools/cygwin/home/Geoffrey/Share/scripts/loop2.sh",
-		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/C/tools/cygwin/home/Geoffrey/Share/loop.sh",
 		"/C/tools/cygwin/home/Geoffrey/mongodb/standalone.pp",
 		"/C/Dev/vagrant/webdeploy/provision-web.ps1",
@@ -248,19 +292,7 @@
 		"/C/tools/cygwin/home/Geoffrey/hubot64/Vagrantfile",
 		"/C/Dev/vagrant/packer-windows/windows_2012.json",
 		"/C/Dev/vagrant/packer-windows/answer_files/2012_r2/Autounattend.xml",
-		"/C/Dev/vagrant/packer-windows/windows_2012_r2.json",
-		"/H/Geoffrey/Microsoft/MSDN/Keys.txt",
-		"/C/tools/cygwin/home/Geoffrey/hubot64/.editorconfig",
-		"/C/tools/cygwin/home/Geoffrey/hubot64/provision.sh",
-		"/C/tools/cygwin/home/Geoffrey/hubot64/myHubot/bin/hubot.cmd",
-		"/C/tools/cygwin/home/Geoffrey/hubot64/myHubot/hubot-scripts.json",
-		"/C/tools/cygwin/home/Geoffrey/hubot/Vagrantfile",
-		"/C/tools/cygwin/home/Geoffrey/hubot/provision.sh",
-		"/C/tools/cygwin/home/Geoffrey/nginx/www/index.html",
-		"/C/tools/cygwin/home/Geoffrey/hubot/.gitattributes",
-		"/C/tools/cygwin/home/Geoffrey/hubot/.editorconfig",
-		"/C/Program Files/Sublime Text 3/.editorconfig",
-		"/C/Program Files/Sublime Text 3/TEST"
+		"/C/Dev/vagrant/packer-windows/windows_2012_r2.json"
 	],
 	"find":
 	{
@@ -268,7 +300,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 102.0,
 		"where_history":
 		[
 		]
@@ -278,6 +310,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"caret",
+			"/fonts",
+			"bower_components",
+			"lib",
 			"board",
 			"(\"",
 			"that",
@@ -311,31 +347,63 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "hello.js",
+					"file": "public/app.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 160,
+						"buffer_size": 763,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								160,
-								0
+								227,
+								227
 							]
 						],
 						"settings":
 						{
 							"apply_syntax_touched": true,
-							"auto_name": "var five = require(\"johnny-five\");",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"auto_complete": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/View In Browser.sublime-settings",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 434,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								431,
+								431
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"auto_complete": true,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -345,32 +413,38 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "node_modules/express/index.js",
+					"buffer": 2,
+					"file": "node_modules/bower/package.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 264,
+						"buffer_size": 3259,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								263,
-								263
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"apply_syntax_touched": true,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"auto_complete": true,
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2674.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -378,11 +452,11 @@
 	],
 	"incremental_find":
 	{
-		"height": 39.0
+		"height": 30.0
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 38.0
 	},
 	"layout":
 	{
@@ -427,6 +501,10 @@
 	{
 		"height": 142.0
 	},
+	"output.exec":
+	{
+		"height": 208.0
+	},
 	"output.find_results":
 	{
 		"height": 0.0
@@ -435,7 +513,7 @@
 	"project": "johnny5.sublime-project",
 	"replace":
 	{
-		"height": 70.0
+		"height": 56.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -473,7 +551,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 105.0,
+	"side_bar_width": 250.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

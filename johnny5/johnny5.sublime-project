@@ -2,7 +2,13 @@
 	"folders":
 	[
 		{
-			"path": "node_modules"
+			"path": "."
 		}
-	]
+	],
+    "settings": {
+        "sublime-view-in-browser": {
+            "baseUrl": "http://localhost:3000",
+            "basePath": "c:/dev/arduino/johnny5/public"
+        }
+    }
 }

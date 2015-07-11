@@ -3,7 +3,7 @@ var express        = require('express');
 var app            = express();  
 var httpServer = require("http").createServer(app);  
 var five = require("johnny-five");  
-var io=require('socket.io')(httpServer);
+var io =  require('socket.io')(httpServer);
 
 var port = 3000; 
 var speedL = 1;
@@ -74,12 +74,12 @@ var forward = function(left, right){
     board.analogWrite(E2, left);
     board.digitalWrite(M2, LOW);
     stopStep();
-}
+};
 
 var stop = function() {  
   board.digitalWrite(E1,LOW);  
   board.digitalWrite(E2,LOW); 
-}
+};
 
 var reverse = function(left, right){
     board.analogWrite(E1, right);
@@ -87,7 +87,7 @@ var reverse = function(left, right){
     board.analogWrite(E2, left);
     board.digitalWrite(M2, HIGH);
     stopStep();
-}
+};
 
 var left = function(left, right) 
 {  
@@ -96,7 +96,7 @@ var left = function(left, right)
   board.analogWrite (E2,left);  
   board.digitalWrite(M2,LOW); 
   stopStep();
-} 
+};
 
 var right = function(left, right) 
 {  
@@ -105,7 +105,7 @@ var right = function(left, right)
   board.analogWrite (E2,left);  
   board.digitalWrite(M2,HIGH); 
   stopStep();
-}
+};
 
 var stopStep = function(){
     board.wait(1000, function(){
@@ -114,4 +114,4 @@ var stopStep = function(){
     board.wait(800, function(){
         board.digitalWrite(E2,LOW); 
     });
-}
+};
