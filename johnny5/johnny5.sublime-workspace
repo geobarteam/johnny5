@@ -60,33 +60,56 @@
 	"buffers":
 	[
 		{
-			"file": "public/app.js",
+			"contents": "(function() {\n    'use strict';\n    var controllerId = \"dashboardController\";\n    angular.module('johnny5').controller(controllerId, ['$scope', 'mySocket', dashboardController]);\n\n    function dashboardController($scope, mySocket) {\n\n        $scope.forward = function() {\n            mySocket.emit('motor:forward');\n            console.log('Going forward!');\n        };\n\n        $scope.stop = function() {\n\n            mySocket.emit('motor:stop');\n            console.log('Stopping!');\n        };\n\n        $scope.reverse = function() {\n            mySocket.emit('motor:reverse');\n            console.log('Reverse!');\n        };\n\n        $scope.left = function() {\n\n            mySocket.emit('motor:left');\n            console.log('Left!');\n        };\n\n        $scope.right = function() {\n\n            mySocket.emit('motor:right');\n            console.log('Right!');\n        };\n    }\n})();",
+			"file": "public/dashboard/dashboardcontroller.js",
+			"file_size": 889,
+			"file_write_time": 130810974783835426,
 			"settings":
 			{
-				"buffer_size": 763,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/View In Browser.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 434,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "node_modules/bower/package.json",
-			"settings":
-			{
-				"buffer_size": 3259,
+				"buffer_size": 888,
 				"line_ending": "Unix"
 			}
 		}
 	],
-	"build_system": "",
+	"build_system": "Packages/JSHint/JSHint.sublime-build",
 	"build_system_choices":
 	[
+		[
+			[
+				[
+					"Packages/JSHint/JSHint.sublime-build",
+					""
+				],
+				[
+					"Packages/User/Node-Debug.sublime-build",
+					""
+				],
+				[
+					"Packages/User/node.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/JSHint/JSHint.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/JSHint/JSHint.sublime-build",
+					""
+				],
+				[
+					"Packages/User/node.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/User/node.sublime-build",
+				""
+			]
+		]
 	],
 	"build_varint": "",
 	"command_palette":
@@ -158,33 +181,41 @@
 	[
 		"/C/Dev/arduino/johnny5",
 		"/C/Dev/arduino/johnny5/node_modules",
-		"/C/Dev/arduino/johnny5/node_modules/bower",
 		"/C/Dev/arduino/johnny5/public",
-		"/C/Dev/arduino/johnny5/public/lib",
-		"/C/Dev/arduino/johnny5/public/lib/fontawesome"
+		"/C/Dev/arduino/johnny5/public/dashboard",
+		"/C/Dev/arduino/johnny5/public/img",
+		"/C/Dev/arduino/johnny5/public/services"
 	],
 	"file_history":
 	[
+		"/C/Dev/arduino/johnny5/public/app.js",
+		"/C/Dev/arduino/johnny5/public/index.html",
+		"/C/Dev/arduino/johnny5/public/dashboard/dashboardcontroller.js",
+		"/C/Dev/arduino/johnny5/public/services/motorService.js",
+		"/C/Dev/arduino/johnny5/public/img/background.png",
+		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Dev/arduino/johnny5/avanti.js",
+		"/C/Dev/arduino/johnny5/server.js",
+		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/Node-Debug.sublime-build",
+		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/node.sublime-build",
+		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/Node.sublime-build",
+		"/C/Dev/arduino/johnny5/johnny5.sublime-project",
+		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/View In Browser.sublime-settings",
+		"/C/Dev/arduino/johnny5/node_modules/bower/package.json",
 		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/View In Browser/View In Browser.sublime-settings",
 		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/View In Browser.sublime-settings",
 		"/C/Dev/arduino/johnny5/public/lib/fontawesome/font-awesome.min.css",
-		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
 		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/C/Dev/arduino/johnny5/node_modules/bower/Gruntfile.js",
 		"/C/Dev/arduino/johnny5/public/package.json",
-		"/C/Dev/arduino/johnny5/public/app.js",
 		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
-		"/C/Dev/arduino/johnny5/public/index.html",
 		"/C/Dev/arduino/johnny5/public/lib/bootstrap/README.md",
 		"/C/Users/Geoffrey/Downloads/JohnnyFiveNodeWebkitExample-master/JohnnyFiveNodeWebkitExample-master/app/favicon.ico",
 		"/C/Users/Geoffrey/Downloads/JohnnyFiveNodeWebkitExample-master/JohnnyFiveNodeWebkitExample-master/app/index.html",
 		"/C/Dev/arduino/johnny5/ping.js",
 		"/C/Dev/arduino/johnny5/.bowerrc",
 		"/C/Dev/arduino/dfrover/basicscketch/basicscketch.ino",
-		"/C/Dev/arduino/johnny5/server.js",
 		"/C/Dev/arduino/johnny5/accelerometer.js",
-		"/C/Dev/arduino/johnny5/avanti.js",
 		"/C/Users/Geoffrey/Downloads/ping.fzz",
 		"/C/Dev/arduino/johnny5/bower.json",
 		"/C/Dev/arduino/johnny5/node_modules/socket.io/Readme.md",
@@ -284,15 +315,7 @@
 		"/C/Dev/DevoSpace/Publish/chocolateytemplates-master/chocolateytemplates-master/_templates/chocolatey/tools/chocolateyInstall.ps1",
 		"/C/Dev/vagrant/packer-windows/windows_2012_r2_geobar.json",
 		"/C/Dev/vagrant/packer-windows/vagrantfile-windows_2012_r2.template",
-		"/C/Dev/vagrant/packer-windows/answer_files/2012_r2_geobar/Autounattend.xml",
-		"/C/Dev/DevoSpace/Publish/chocolateytemplates-master/chocolateytemplates-master/_templates/KetarinChocolateyTemplate.xml",
-		"/C/Dev/DevoSpace/Publish/devospace-package/__NAME__.nuspec",
-		"/C/Dev/vagrant/packer-windows/answer_files/2012_r2_core/Autounattend.xml",
-		"/C/Dev/DevoSpace/Publish/chocolateytemplates-master/chocolateytemplates-master/_templates/chocolateyauto3/__NAME__/__NAME__.nuspec",
-		"/C/tools/cygwin/home/Geoffrey/hubot64/Vagrantfile",
-		"/C/Dev/vagrant/packer-windows/windows_2012.json",
-		"/C/Dev/vagrant/packer-windows/answer_files/2012_r2/Autounattend.xml",
-		"/C/Dev/vagrant/packer-windows/windows_2012_r2.json"
+		"/C/Dev/vagrant/packer-windows/answer_files/2012_r2_geobar/Autounattend.xml"
 	],
 	"find":
 	{
@@ -352,19 +375,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "public/app.js",
+					"file": "public/dashboard/dashboardcontroller.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 763,
+						"buffer_size": 888,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								227,
-								227
+								616,
+								616
 							]
 						],
 						"settings":
@@ -383,69 +406,10 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/View In Browser.sublime-settings",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 434,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								431,
-								431
-							]
-						],
-						"settings":
-						{
-							"apply_syntax_touched": true,
-							"auto_complete": true,
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
+					"file": "public/img/background.png",
+					"semi_transient": true,
 					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "node_modules/bower/package.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3259,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"apply_syntax_touched": true,
-							"auto_complete": true,
-							"editorconfig": true,
-							"ensure_newline_at_eof_on_save": true,
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true,
-							"trim_trailing_white_space_on_save": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2674.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
+					"type": "image"
 				}
 			]
 		}
@@ -509,7 +473,7 @@
 	{
 		"height": 0.0
 	},
-	"pinned_build_system": "",
+	"pinned_build_system": "Packages/User/node.sublime-build",
 	"project": "johnny5.sublime-project",
 	"replace":
 	{

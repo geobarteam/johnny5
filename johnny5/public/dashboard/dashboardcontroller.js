@@ -10,7 +10,6 @@
             console.log('Going forward!');
         };
 
-
         $scope.stop = function() {
 
             mySocket.emit('motor:stop');
