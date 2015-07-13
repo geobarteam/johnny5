@@ -3,6 +3,8 @@
     var serviceId = "motorService";
     angular.module('johnny5').factory(serviceId, ['mySocket', motorService]);
 	
+
+	
 	function motorService(mySocket){
 		var service = {
 			forward: forward,

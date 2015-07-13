@@ -4,16 +4,8 @@ var app            = express();
 var httpServer = require("http").createServer(app);  
 var five = require("johnny-five");  
 var io =  require('socket.io')(httpServer);
-
+var motorService = require('./motor.js');
 var port = 3000; 
-var speedL = 1;
-var speedR = 1;
-var E1 = 6; //M1 Speed Control 
-var E2 = 5; //M2 Speed Control 
-var M1 = 8; //M1 Direction Control 
-var M2 = 7; //M2 Direction Control
-var LOW = 0;
-var HIGH = 1;
  
 app.use(express.static(__dirname + '/public'));
  
@@ -34,84 +26,39 @@ board.on("ready", function() {
         this.pinMode(i, this.MODES.OUTPUT);
     }
 });
- 
+
+var motor = new motorService(board);
+
 //Socket connection handler
 io.on('connection', function (socket) {  
         console.log(socket.id);
- 
+
         socket.on('motor:forward', function (data) {
-           forward(speedL,speedR);
+           motor.forward();
            console.log('forward RECEIVED');
         });
  
         socket.on('motor:stop', function (data) {
-            stop();
+            motor.stop();
             console.log('stop RECEIVED');
  
         });
 
         socket.on('motor:reverse', function (data) {
-            reverse(speedL,speedR);
+            motor.reverse();
             console.log('reverse RECEIVED');
         });
 
         socket.on('motor:left', function (data) {
-            left(speedL,speedR);
+            motor.left();
             console.log('left RECEIVED');
         });
 
         socket.on('motor:right', function (data) {
-            right(speedL,speedR);
+            motor.right();
             console.log('right RECEIVED');
         });
     });
  
 console.log('Waiting for connection');
  
-var forward = function(left, right){
-    board.analogWrite(E1, right);
-    board.digitalWrite(M1, LOW);
-    board.analogWrite(E2, left);
-    board.digitalWrite(M2, LOW);
-    stopStep();
-};
-
-var stop = function() {  
-  board.digitalWrite(E1,LOW);  
-  board.digitalWrite(E2,LOW); 
-};
-
-var reverse = function(left, right){
-    board.analogWrite(E1, right);
-    board.digitalWrite(M1, HIGH);
-    board.analogWrite(E2, left);
-    board.digitalWrite(M2, HIGH);
-    stopStep();
-};
-
-var left = function(left, right) 
-{  
-  board.analogWrite (E1,right);  
-  board.digitalWrite(M1,HIGH);  
-  board.analogWrite (E2,left);  
-  board.digitalWrite(M2,LOW); 
-  stopStep();
-};
-
-var right = function(left, right) 
-{  
-  board.analogWrite (E1,right);  
-  board.digitalWrite(M1,LOW);  
-  board.analogWrite (E2,left);  
-  board.digitalWrite(M2,HIGH); 
-  stopStep();
-};
-
-var stopStep = function(){
-    board.wait(1000, function(){
-        board.digitalWrite(E1,LOW); 
-    });
-    board.wait(800, function(){
-        board.digitalWrite(E2,LOW); 
-    });
-};
