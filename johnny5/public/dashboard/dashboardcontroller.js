@@ -1,36 +1,28 @@
 (function() {
     'use strict';
     var controllerId = "dashboardController";
-    angular.module('johnny5').controller(controllerId, ['$scope', 'mySocket', dashboardController]);
+    angular.module('johnny5').controller(controllerId, ['$scope', 'motorService', dashboardController]);
 
-    function dashboardController($scope, mySocket) {
+    function dashboardController($scope, motorService) {
 
         $scope.forward = function() {
-            mySocket.emit('motor:forward');
-            console.log('Going forward!');
+            motorService.forward();
         };
 
         $scope.stop = function() {
-
-            mySocket.emit('motor:stop');
-            console.log('Stopping!');
+            motorService.stop();
         };
 
         $scope.reverse = function() {
-            mySocket.emit('motor:reverse');
-            console.log('Reverse!');
+            motorService.reverse();
         };
 
         $scope.left = function() {
-
-            mySocket.emit('motor:left');
-            console.log('Left!');
+            motorService.left();
         };
 
         $scope.right = function() {
-
-            mySocket.emit('motor:right');
-            console.log('Right!');
+            motorService.right();
         };
     }
 })();
