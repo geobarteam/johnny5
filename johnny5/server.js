@@ -35,28 +35,28 @@ io.on('connection', function (socket) {
 
         socket.on('motor:forward', function (data) {
            motor.forward();
-           console.log('forward RECEIVED');
+           socket.emit('motor', 'forward');
         });
  
         socket.on('motor:stop', function (data) {
             motor.stop();
-            console.log('stop RECEIVED');
+            socket.emit('motor', 'stop');
  
         });
 
         socket.on('motor:reverse', function (data) {
             motor.reverse();
-            console.log('reverse RECEIVED');
+            socket.emit('motor', 'reverse');
         });
 
         socket.on('motor:left', function (data) {
             motor.left();
-            console.log('left RECEIVED');
+            socket.emit('motor', 'left');
         });
 
         socket.on('motor:right', function (data) {
             motor.right();
-            console.log('right RECEIVED');
+            socket.emit('motor', 'right');
         });
     });
  

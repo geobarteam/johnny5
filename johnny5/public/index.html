@@ -92,6 +92,7 @@
         <div class="col-lg-12">
           <p class="text-center">
             <i class="fa fa-cog jumbotron-icon" id="motor"></i>
+
             <br/>
             <button type="button" class="btn btn-lg" id="btnToggleMotor">Turn On</button>
           </p>
@@ -99,7 +100,7 @@
       </div>
 
     </div>
-
+    state:<span ng-bind="motorState"></span>
     <button ng-click="forward()">Forward</button>
     <button ng-click="reverse()">Reverse</button>
     <button ng-click="left()">Left</button>

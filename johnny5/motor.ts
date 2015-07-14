@@ -29,14 +29,12 @@ class Motor{
 			that.board.digitalWrite(that.E1,that.LOW); 
 		});
 		this.board.wait(800, function(){
-			console.log('board:' + that.board);
 			that.board.digitalWrite(that.E2,that.LOW); 
 		});
 	};
 
 	forward() {
 		this.board.analogWrite(this.E1, this.speedR);
-		console.log('board:' + this.board);
 		this.board.digitalWrite(this.M1, this.LOW);
 		this.board.analogWrite(this.E2, this.speedL);
 		this.board.digitalWrite(this.M2, this.LOW);

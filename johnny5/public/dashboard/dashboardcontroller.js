@@ -1,9 +1,12 @@
 (function() {
     'use strict';
     var controllerId = "dashboardController";
-    angular.module('johnny5').controller(controllerId, ['$scope', 'motorService', dashboardController]);
+    angular.module('johnny5').controller(controllerId, ['$scope', 'motorService','mySocket', dashboardController]);
 
-    function dashboardController($scope, motorService) {
+    function dashboardController($scope, motorService, mySocket) {
+        mySocket.on('motor', function(data){
+            $scope.motorState = data;
+        })    
 
         $scope.forward = function() {
             motorService.forward();

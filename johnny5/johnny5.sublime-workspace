@@ -4,6 +4,42 @@
 		"selected_items":
 		[
 			[
+				"nu",
+				"number	keyword"
+			],
+			[
+				"fo",
+				"forward"
+			],
+			[
+				"sp",
+				"speedL	property"
+			],
+			[
+				"mo",
+				"motor:right"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"serv",
+				"serviceId"
+			],
+			[
+				"r",
+				"right"
+			],
+			[
+				"f",
+				"forward"
+			],
+			[
+				"re",
+				"reverse"
+			],
+			[
 				"stop",
 				"stopStep"
 			],
@@ -12,19 +48,7 @@
 				"stopStep"
 			],
 			[
-				"fo",
-				"for	for (…) {…}"
-			],
-			[
-				"sp",
-				"speedR"
-			],
-			[
 				"rep",
-				"repldef"
-			],
-			[
-				"r",
 				"repldef"
 			],
 			[
@@ -60,14 +84,70 @@
 	"buffers":
 	[
 		{
-			"contents": "(function() {\n    'use strict';\n    var controllerId = \"dashboardController\";\n    angular.module('johnny5').controller(controllerId, ['$scope', 'mySocket', dashboardController]);\n\n    function dashboardController($scope, mySocket) {\n\n        $scope.forward = function() {\n            mySocket.emit('motor:forward');\n            console.log('Going forward!');\n        };\n\n        $scope.stop = function() {\n\n            mySocket.emit('motor:stop');\n            console.log('Stopping!');\n        };\n\n        $scope.reverse = function() {\n            mySocket.emit('motor:reverse');\n            console.log('Reverse!');\n        };\n\n        $scope.left = function() {\n\n            mySocket.emit('motor:left');\n            console.log('Left!');\n        };\n\n        $scope.right = function() {\n\n            mySocket.emit('motor:right');\n            console.log('Right!');\n        };\n    }\n})();",
-			"file": "public/dashboard/dashboardcontroller.js",
-			"file_size": 889,
-			"file_write_time": 130810974783835426,
+			"file": "public/services/motorService.js",
 			"settings":
 			{
-				"buffer_size": 888,
+				"buffer_size": 617,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "server.js",
+			"settings":
+			{
+				"buffer_size": 1639,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "johnny5.sublime-project",
+			"settings":
+			{
+				"buffer_size": 221,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "motor.js",
+			"settings":
+			{
+				"buffer_size": 2145,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "ar test = \"hello world\";\nconsole.log(test);\n",
+			"file": "test.js",
+			"file_size": 47,
+			"file_write_time": 130812645704034978,
+			"settings":
+			{
+				"buffer_size": 44,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/index.html",
+			"settings":
+			{
+				"buffer_size": 4458,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/dashboard/dashboardcontroller.js",
+			"settings":
+			{
+				"buffer_size": 666,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/C/tools/cygwin/home/Geoffrey/ubuntu64/provision.sh",
+			"settings":
+			{
+				"buffer_size": 452,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -114,13 +194,49 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 392.0,
-		"last_filter": "packa",
+		"height": 127.0,
+		"last_filter": "git STAT",
 		"selected_items":
 		[
 			[
+				"git STAT",
+				"Git: Status"
+			],
+			[
+				"git commit",
+				"Git: Commit"
+			],
+			[
+				"git stat",
+				"Git: Status"
+			],
+			[
+				"git reb",
+				"Git: Pull Using Rebase"
+			],
+			[
+				"git pull",
+				"Git: Pull Current Branch"
+			],
+			[
+				"git comm",
+				"Git: Commit"
+			],
+			[
+				"git res",
+				"Git: Pull Using Rebase"
+			],
+			[
+				"git Status",
+				"Git: Status"
+			],
+			[
+				"git status",
+				"Git: Status"
+			],
+			[
 				"packa",
-				"Package Control: Install Package"
+				"Package Control: List Packages"
 			],
 			[
 				"view",
@@ -155,7 +271,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 528.0
+		"width": 400.0
 	},
 	"console":
 	{
@@ -188,12 +304,18 @@
 	],
 	"file_history":
 	[
+		"/C/Dev/arduino/johnny5/ping.js",
+		"/C/Dev/arduino/johnny5/hello.js",
+		"/C/Dev/arduino/johnny5/motor.ts",
+		"/C/Dev/arduino/johnny5/accelerometer.js",
+		"/C/Dev/arduino/johnny5/motor.js",
+		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Dev/arduino/johnny5/public/dashboard/dashboardcontroller.js",
 		"/C/Dev/arduino/johnny5/public/app.js",
 		"/C/Dev/arduino/johnny5/public/index.html",
-		"/C/Dev/arduino/johnny5/public/dashboard/dashboardcontroller.js",
 		"/C/Dev/arduino/johnny5/public/services/motorService.js",
 		"/C/Dev/arduino/johnny5/public/img/background.png",
-		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
 		"/C/Dev/arduino/johnny5/avanti.js",
 		"/C/Dev/arduino/johnny5/server.js",
 		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/Node-Debug.sublime-build",
@@ -203,7 +325,6 @@
 		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/View In Browser.sublime-settings",
 		"/C/Dev/arduino/johnny5/node_modules/bower/package.json",
 		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/View In Browser/View In Browser.sublime-settings",
-		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/C/Dev/arduino/johnny5/public/lib/fontawesome/font-awesome.min.css",
 		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/C/Dev/arduino/johnny5/node_modules/bower/Gruntfile.js",
@@ -212,10 +333,8 @@
 		"/C/Dev/arduino/johnny5/public/lib/bootstrap/README.md",
 		"/C/Users/Geoffrey/Downloads/JohnnyFiveNodeWebkitExample-master/JohnnyFiveNodeWebkitExample-master/app/favicon.ico",
 		"/C/Users/Geoffrey/Downloads/JohnnyFiveNodeWebkitExample-master/JohnnyFiveNodeWebkitExample-master/app/index.html",
-		"/C/Dev/arduino/johnny5/ping.js",
 		"/C/Dev/arduino/johnny5/.bowerrc",
 		"/C/Dev/arduino/dfrover/basicscketch/basicscketch.ino",
-		"/C/Dev/arduino/johnny5/accelerometer.js",
 		"/C/Users/Geoffrey/Downloads/ping.fzz",
 		"/C/Dev/arduino/johnny5/bower.json",
 		"/C/Dev/arduino/johnny5/node_modules/socket.io/Readme.md",
@@ -312,10 +431,7 @@
 		"/C/Dev/DevoSpace/Publish/devospace-package/tools/Devospace.Web.SetParameters.xml",
 		"/C/Dev/DevoSpace/Publish/devospace-package/tools/Devospace.Web.deploy.cmd",
 		"/C/Dev/DevoSpace/Publish/devospace-package/tools/Devospace.Web.SourceManifest.xml",
-		"/C/Dev/DevoSpace/Publish/chocolateytemplates-master/chocolateytemplates-master/_templates/chocolatey/tools/chocolateyInstall.ps1",
-		"/C/Dev/vagrant/packer-windows/windows_2012_r2_geobar.json",
-		"/C/Dev/vagrant/packer-windows/vagrantfile-windows_2012_r2.template",
-		"/C/Dev/vagrant/packer-windows/answer_files/2012_r2_geobar/Autounattend.xml"
+		"/C/Dev/DevoSpace/Publish/chocolateytemplates-master/chocolateytemplates-master/_templates/chocolatey/tools/chocolateyInstall.ps1"
 	],
 	"find":
 	{
@@ -333,6 +449,21 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"this.left",
+			"left",
+			"HIGH",
+			"right",
+			"M2",
+			"M1",
+			"E2",
+			"LOW",
+			"right",
+			"LOW",
+			"E1",
+			"var",
+			"board",
+			"	",
+			"dashboardController",
 			"caret",
 			"/fonts",
 			"bower_components",
@@ -370,30 +501,121 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 7,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "public/dashboard/dashboardcontroller.js",
+					"file": "public/services/motorService.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 888,
+						"buffer_size": 617,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								616,
-								616
+								294,
+								294
 							]
 						],
 						"settings":
 						{
 							"apply_syntax_touched": true,
-							"auto_complete": true,
+							"auto_complete": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "server.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1639,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1183,
+								1183
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"auto_complete": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 399.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "johnny5.sublime-project",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 221,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "motor.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2145,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								536,
+								536
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"auto_complete": false,
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -402,15 +624,137 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"file": "public/img/background.png",
-					"semi_transient": true,
+					"buffer": 4,
+					"file": "test.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 44,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								44,
+								44
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"auto_complete": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "public/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4458,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4247,
+								4247
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"auto_complete": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 912.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "public/dashboard/dashboardcontroller.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 666,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								241,
+								241
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"auto_complete": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
 					"stack_index": 1,
-					"type": "image"
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/C/tools/cygwin/home/Geoffrey/ubuntu64/provision.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 452,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
 				}
+			]
+		},
+		{
+			"sheets":
+			[
 			]
 		}
 	],
@@ -431,11 +775,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -465,6 +816,10 @@
 	{
 		"height": 142.0
 	},
+	"output.doc":
+	{
+		"height": 0.0
+	},
 	"output.exec":
 	{
 		"height": 208.0
@@ -473,7 +828,11 @@
 	{
 		"height": 0.0
 	},
-	"pinned_build_system": "Packages/User/node.sublime-build",
+	"output.git":
+	{
+		"height": 124.0
+	},
+	"pinned_build_system": "Packages/TypeScript/TypeScript.sublime-build",
 	"project": "johnny5.sublime-project",
 	"replace":
 	{
