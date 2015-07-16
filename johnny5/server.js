@@ -6,7 +6,7 @@ var five = require("johnny-five");
 var io =  require('socket.io')(httpServer);
 var motorService = require('./motor.js');
 var port = 3000; 
- 
+var radarService = require('./radar.js');
 app.use(express.static(__dirname + '/public'));
  
 app.get('/', function(req, res) {  
@@ -18,13 +18,14 @@ console.log('Server available at http://localhost:' + port);
 var led;
  
 //Arduino board connection
- 
-var board = new five.Board({port:"com5"});  
+var board = new five.Board({port:"com5"});
+//var radar  new radarService(five);  
 board.on("ready", function() {  
     console.log('Arduino connected');
     for (var i = 5; i <= 8; i++) {
         this.pinMode(i, this.MODES.OUTPUT);
     }
+    //radar.startListening();
 });
 
 var motor = new motorService(board);
@@ -59,6 +60,9 @@ io.on('connection', function (socket) {
             socket.emit('motor', 'right');
         });
     });
- 
+
+/*radar.on(radar.changeEventName, function(data){
+    socket.emit('radar', data);
+})*/
 console.log('Waiting for connection');
  

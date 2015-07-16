@@ -6,7 +6,11 @@
     function dashboardController($scope, motorService, mySocket) {
         mySocket.on('motor', function(data){
             $scope.motorState = data;
-        })    
+        });
+
+        mySocket.on('radar', function(data){
+            $scope.radarState = data;
+        }) ;   
 
         $scope.forward = function() {
             motorService.forward();

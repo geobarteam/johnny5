@@ -31,11 +31,11 @@
           </div>
           <div class="collapse navbar-collapse" id="navegationBar">
             <ul class="nav navbar-nav">
-              <li  id="linkLed" class="active">
-                <a href="#" >Led</a>
+              <li  id="linkRadar" class="active">
+                <a href="#" ng-click="radar_show=!radar_show">Radar</a>
               </li>
               <li  id="linkMotor">
-                <a href="#" >Motor</a>
+                <a href="#" ng-click="motor_show=!motor_show">Motor</a>
               </li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
@@ -78,34 +78,48 @@
 
     <div class="container" id="main">
 
-      <div class="row" id="containerLed">
+      <div class="row" id="containerRadar" ng-show="radar_show">
         <div class="col-lg-12">
           <p class="text-center">
             <i class="fa fa-lightbulb-o jumbotron-icon" id="led"></i>
             <br/>
-            <button type="button" class="btn btn-lg" id="btnToggleLed">Turn On</button>
+            <label>Left:</label><span ng-bind="radarState.leftValue"></span>
+            <label>Center:</label><span ng-bind="radarState.middleValue"></span>
+            <label>right:</label><span ng-bind="radarState.raightValue"></span>
           </p>
         </div>
       </div>
 
-      <div class="row" id="containerMotor" hidden>
+      <div class="row" id="containerMotor" ng-show="motor_show">
         <div class="col-lg-12">
           <p class="text-center">
-            <i class="fa fa-cog jumbotron-icon" id="motor"></i>
+            <i class="fa fa-cog jumbotron-icon" id="motor"><span ng-bind="motorState"></span>
+            </i>
 
             <br/>
-            <button type="button" class="btn btn-lg" id="btnToggleMotor">Turn On</button>
+            <table>
+              <tr>
+                <td></td>
+                <td><button type="button" class="btn btn-lg" ng-click="forward()">Forward</button></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><button type="button" class="btn btn-lg" ng-click="left()">Left</button></td>
+                <td><button type="button" class="btn btn-lg" ng-click="stop()">Stop</button></td>
+                <td><button type="button" class="btn btn-lg" ng-click="right()">Right</button></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><button type="button" class="btn btn-lg" ng-click="reverse()">Reverse</button></td>
+                <td></td>
+              </tr>
+            </table>
           </p>
         </div>
       </div>
-
+      
     </div>
-    state:<span ng-bind="motorState"></span>
-    <button ng-click="forward()">Forward</button>
-    <button ng-click="reverse()">Reverse</button>
-    <button ng-click="left()">Left</button>
-    <button ng-click="right()">Right</button>
-    <button ng-click="stop()">Stop</button>
+    
   </div>
 <script src="lib/socket.io-client/socket.io.js"></script>
 <script src="lib/angularjs/angular.js"></script>  
