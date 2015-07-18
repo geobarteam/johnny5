@@ -19,16 +19,20 @@ var led;
  
 //Arduino board connection
 var board = new five.Board({port:"com5"});
-//var radar  new radarService(five);  
+
+var motor = new motorService(board);
+var radar = new radarService();
+
 board.on("ready", function() {  
     console.log('Arduino connected');
     for (var i = 5; i <= 8; i++) {
         this.pinMode(i, this.MODES.OUTPUT);
     }
-    //radar.startListening();
+
+    radar.startListening();
 });
 
-var motor = new motorService(board);
+
 
 //Socket connection handler
 io.on('connection', function (socket) {  
@@ -59,10 +63,14 @@ io.on('connection', function (socket) {
             motor.right();
             socket.emit('motor', 'right');
         });
+
+        radar.on('change', function(data){
+            console.log('radar data:' + data )
+            socket.emit('radar', data);
+        });
     });
 
-/*radar.on(radar.changeEventName, function(data){
-    socket.emit('radar', data);
-})*/
+
+
 console.log('Waiting for connection');
  

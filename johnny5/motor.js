@@ -58,3 +58,4 @@ var Johnny5;
     Johnny5.Motor = Motor;
 })(Johnny5 || (Johnny5 = {}));
 module.exports = Johnny5.Motor;
+//# sourceMappingURL=motor.js.map
