@@ -4,14 +4,16 @@ var app            = express();
 var httpServer = require("http").createServer(app);  
 var five = require("johnny-five");  
 var io =  require('socket.io')(httpServer);
+var bodyParser = require('body-parser');
 var motorService = require('./motor.js');
 var port = 3000; 
-var radarService = require('./radar.js');
+var radarService = require('./radar.js');var bodyParser = require('body-parser');
 
 var board = new five.Board({port:"com5"});
-var motor = new motorService(board);
-var radar = new radarService();
-var bodyParser = require('body-parser');
+var robot = require("./robot.js");
+var motor = new robot.Motor(board);
+var radar = new robot.Radar();
+console.log(motor);
 
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
