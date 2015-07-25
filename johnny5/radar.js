@@ -1,7 +1,7 @@
-///<reference path=".\contracts\RadarData.ts" />
+///<reference path=".\Contracts.ts" />
 ///<reference path=".\lib\node.d.ts"/>
 ///<reference path=".\lib\johnny-five.d.ts"/>
-var __extends = this.__extends || function (d, b) {
+var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     __.prototype = b.prototype;
@@ -26,6 +26,13 @@ var Johnny5;
             this.radarData = new RadarData(0, 0, 0);
             _super.call(this);
         }
+        Object.defineProperty(Radar.prototype, "Data", {
+            get: function () {
+                return this.radarData;
+            },
+            enumerable: true,
+            configurable: true
+        });
         Radar.prototype.startListening = function () {
             this.leftPing = new five.Ping(11);
             this.middlePing = new five.Ping(12);
@@ -47,6 +54,5 @@ var Johnny5;
         return Radar;
     })(Emitter.EventEmitter);
     Johnny5.Radar = Radar;
-})(Johnny5 || (Johnny5 = {}));
+})(Johnny5 = exports.Johnny5 || (exports.Johnny5 = {}));
 module.exports = Johnny5.Radar;
-//# sourceMappingURL=radar.js.map

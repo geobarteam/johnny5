@@ -7,21 +7,44 @@ var io =  require('socket.io')(httpServer);
 var motorService = require('./motor.js');
 var port = 3000; 
 var radarService = require('./radar.js');
+
+var board = new five.Board({port:"com5"});
+var motor = new motorService(board);
+var radar = new radarService();
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
  
 app.get('/', function(req, res) {  
         res.sendFile(__dirname + '/public/index.html');
 });
- 
+app.get('/radar', function(req,res){res.status(200).send(radar.Data)}) 
+app.post('/motor', function(req,res){
+    console.log(req.body);
+    if (req.body.action =="forward"){
+        motor.forward();
+    }
+    if (req.body.action =="stop"){
+        motor.stop();
+    }
+    if (req.body.action =="reverse"){
+        motor.reverse();
+    }
+    if (req.body.action =="left"){
+        motor.left();
+    }
+    if (req.body.action =="right"){
+        motor.right();
+    }
+})
+
 httpServer.listen(port);  
 console.log('Server available at http://localhost:' + port);  
 var led;
  
 //Arduino board connection
-var board = new five.Board({port:"com5"});
 
-var motor = new motorService(board);
-var radar = new radarService();
 
 board.on("ready", function() {  
     console.log('Arduino connected');
@@ -31,8 +54,6 @@ board.on("ready", function() {
 
     radar.startListening();
 });
-
-
 
 //Socket connection handler
 io.on('connection', function (socket) {  
