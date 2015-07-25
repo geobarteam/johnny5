@@ -5,9 +5,8 @@ var httpServer = require("http").createServer(app);
 var five = require("johnny-five");  
 var io =  require('socket.io')(httpServer);
 var bodyParser = require('body-parser');
-var motorService = require('./motor.js');
 var port = 3000; 
-var radarService = require('./radar.js');var bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 
 var board = new five.Board({port:"com5"});
 var robot = require("./robot.js");
@@ -22,25 +21,7 @@ app.get('/', function(req, res) {
         res.sendFile(__dirname + '/public/index.html');
 });
 app.get('/radar', function(req,res){res.status(200).send(radar.Data)}) 
-app.post('/motor', function(req,res){
-    console.log(req.body);
-    if (req.body.action =="forward"){
-        motor.forward();
-    }
-    if (req.body.action =="stop"){
-        motor.stop();
-    }
-    if (req.body.action =="reverse"){
-        motor.reverse();
-    }
-    if (req.body.action =="left"){
-        motor.left();
-    }
-    if (req.body.action =="right"){
-        motor.right();
-    }
-})
-
+app.post('/motor', motor.ActionHandler(motor));
 httpServer.listen(port);  
 console.log('Server available at http://localhost:' + port);  
 var led;
@@ -48,14 +29,7 @@ var led;
 //Arduino board connection
 
 
-board.on("ready", function() {  
-    console.log('Arduino connected');
-    for (var i = 5; i <= 8; i++) {
-        this.pinMode(i, this.MODES.OUTPUT);
-    }
-
-    radar.startListening();
-});
+board.on("ready", radar.InitializeHandler());
 
 //Socket connection handler
 io.on('connection', function (socket) {  

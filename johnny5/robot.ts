@@ -50,6 +50,18 @@ export class Radar extends Emitter.EventEmitter {
 			that.emit("change", that.radarData);
 		});
 	}
+
+	public InitializeHandler(){
+		var radar = this;
+		return function(){ 
+		    console.log('Arduino connected');
+		    for (var i = 5; i <= 8; i++) {
+		        this.pinMode(i, this.MODES.OUTPUT);
+		    }
+
+		    radar.startListening();
+		}
+	}
 }
 
 export class Motor {
@@ -115,13 +127,37 @@ export class Motor {
 		this.stopStep();
 	}
 
-	right(left, right) {
+	right() {
 		this.board.analogWrite(this.E1, this.speedR);
 		this.board.digitalWrite(this.M1, this.LOW);
 		this.board.analogWrite(this.E2, this.speedL);
 		this.board.digitalWrite(this.M2, this.HIGH);
 		this.stopStep();
 	}
+
+	public ActionHandler(){
+		var motor = this;
+        return function(req,res){
+        console.log(req.body);
+        if (req.body.action =="forward"){
+            motor.forward();
+        }
+        if (req.body.action =="stop"){
+            motor.stop();
+        }
+        if (req.body.action =="reverse"){
+            motor.reverse();
+        }
+        if (req.body.action =="left"){
+            motor.left();
+        }
+        if (req.body.action =="right"){
+            motor.right();
+        }
+    }
+}
+
+
 }
 
 
