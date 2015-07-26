@@ -16,7 +16,7 @@ import robot = require("./robot");
 export class Server {
     app: express.Application;
     httpServer: http.Server;
-    io: sio.Manager;
+    io: SocketIO.Server;
     port: number;
     board: five.Board;
     motor: robot.Motor;
@@ -32,8 +32,8 @@ export class Server {
         this.io = sio.listen(this.httpServer);
         this.board = new five.Board({port:this.serialPort});
         this.motor = new robot.Motor(this.board);
-        this.radar = new robot.Radar(this.board);
-       
+        this.radar = new robot.Radar(this.board);  
+
     }  
 
     public startListening(){
@@ -57,7 +57,7 @@ export class Server {
         this.board.on("ready", this.radar.InitializeHandler());
 
         //Socket connection handler
-        this.io.sockets.on('connection', function (socket: sio.Socket) {  
+        this.io.sockets.on('connection', function (socket: SocketIO.Socket) {  
             console.log(socket.id);
 
             socket.on('motor:forward', function (data) {
@@ -98,9 +98,8 @@ export class Server {
 
 // main
 var server = new Server("com7", 3000);
-server.startListening();
 server.startBoard();
-
+server.startListening();
 
 
 
