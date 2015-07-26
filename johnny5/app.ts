@@ -28,7 +28,7 @@ export class Server {
         this.serialPort = serialPort;
         this.tcpPort = tcpPort;
         this.app = express();
-        this.httpServer = http.createServer(this.app);
+        this.httpServer = require('http').createServer(this.app);
         this.io = sio.listen(this.httpServer);
         this.board = new five.Board({port:this.serialPort});
         this.motor = new robot.Motor(this.board);

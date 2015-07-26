@@ -7,7 +7,6 @@
 var express = require('express');
 var five = require("johnny-five");
 var sio = require('socket.io');
-var http = require('http');
 var bodyParser = require('body-parser');
 var robot = require("./robot");
 var Server = (function () {
@@ -15,7 +14,7 @@ var Server = (function () {
         this.serialPort = serialPort;
         this.tcpPort = tcpPort;
         this.app = express();
-        this.httpServer = http.createServer(this.app);
+        this.httpServer = require('http').createServer(this.app);
         this.io = sio.listen(this.httpServer);
         this.board = new five.Board({ port: this.serialPort });
         this.motor = new robot.Motor(this.board);

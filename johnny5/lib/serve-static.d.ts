@@ -11,7 +11,7 @@
  =============================================== */
 
 /// <reference path="express.d.ts" />
-/// <reference path="../mime/mime.d.ts" />
+/// <reference path="mime.d.ts" />
 
 declare module "serve-static" {
     import express = require('express');
