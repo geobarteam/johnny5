@@ -4,7 +4,6 @@
 import five = require('johnny-five');
 import Emitter = require('events');
 
-
 export class RadarData {
     constructor(
         public LeftValue: number,
@@ -19,9 +18,11 @@ export class Radar extends Emitter.EventEmitter {
 	leftPing: any;
 	middlePing: any;
 	rightPing: any;
+	board: five.Board;
 
-	public constructor() {
+	public constructor(board:five.Board) {
 		this.radarData = new RadarData(0, 0, 0);
+		this.board = board;
 		super();
 	}
 
@@ -35,33 +36,42 @@ export class Radar extends Emitter.EventEmitter {
 		this.middlePing = new five.Ping(12);
 		this.rightPing = new five.Ping(13);
 
-		var that = this;
+		var radar = this;
 
 		this.leftPing.on("change", function() {
-			that.radarData.LeftValue = this.cm;
-			that.emit("change", that.radarData);
+			radar.radarData.LeftValue = this.cm;
+			radar.emit("change", radar.radarData);
 		});
 		this.middlePing.on("change", function() {
-			that.radarData.MiddleValue = this.cm;
-			that.emit("change", that.radarData);
+			radar.radarData.MiddleValue = this.cm;
+			radar.emit("change", radar.radarData);
 		});
 		this.rightPing.on("change", function() {
-			that.radarData.RightValue = this.cm;
-			that.emit("change", that.radarData);
+			radar.radarData.RightValue = this.cm;
+			radar.emit("change", radar.radarData);
 		});
 	}
 
 	public InitializeHandler(){
 		var radar = this;
+
 		return function(){ 
 		    console.log('Arduino connected');
 		    for (var i = 5; i <= 8; i++) {
-		        this.pinMode(i, this.MODES.OUTPUT);
+		        radar.board.pinMode(i, PinMode.OUTPUT);
 		    }
 
 		    radar.startListening();
 		}
 	}
+}
+
+export class PinMode {
+	static INPUT = 0;
+	static OUTPUT = 1;
+	static ANALOG = 2;
+	static PWM = 3;
+	static SERVO = 4;
 }
 
 export class Motor {
@@ -76,16 +86,16 @@ export class Motor {
 	LOW: number;
 	HIGH: number;
 
-	constructor(board: any) {
+	constructor(board: five.Board) {
 		this.board = board;
 		this.speedL = 1;
 		this.speedR = 1;
-	this.E1 = 6; //M1 Speed Control 
-	this.E2 = 5; //M2 Speed Control 
-	this.M1 = 8; //M1 Direction Control 
-	this.M2 = 7; //M2 Direction Control
-	this.LOW = 0;
-	this.HIGH = 1;
+		this.E1 = 6; //M1 Speed Control 
+		this.E2 = 5; //M2 Speed Control 
+		this.M1 = 8; //M1 Direction Control 
+		this.M2 = 7; //M2 Direction Control
+		this.LOW = 0;
+		this.HIGH = 1;
 }
 
 	stopStep() {

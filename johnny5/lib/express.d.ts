@@ -1178,7 +1178,7 @@ declare module "express" {
             (): Application;
 
             /**
-            * Create an express application.
+            * Create an @ application.
             */
             createApplication(): Application;
 

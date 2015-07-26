@@ -19,8 +19,9 @@ var RadarData = (function () {
 exports.RadarData = RadarData;
 var Radar = (function (_super) {
     __extends(Radar, _super);
-    function Radar() {
+    function Radar(board) {
         this.radarData = new RadarData(0, 0, 0);
+        this.board = board;
         _super.call(this);
     }
     Object.defineProperty(Radar.prototype, "Data", {
@@ -34,18 +35,18 @@ var Radar = (function (_super) {
         this.leftPing = new five.Ping(11);
         this.middlePing = new five.Ping(12);
         this.rightPing = new five.Ping(13);
-        var that = this;
+        var radar = this;
         this.leftPing.on("change", function () {
-            that.radarData.LeftValue = this.cm;
-            that.emit("change", that.radarData);
+            radar.radarData.LeftValue = this.cm;
+            radar.emit("change", radar.radarData);
         });
         this.middlePing.on("change", function () {
-            that.radarData.MiddleValue = this.cm;
-            that.emit("change", that.radarData);
+            radar.radarData.MiddleValue = this.cm;
+            radar.emit("change", radar.radarData);
         });
         this.rightPing.on("change", function () {
-            that.radarData.RightValue = this.cm;
-            that.emit("change", that.radarData);
+            radar.radarData.RightValue = this.cm;
+            radar.emit("change", radar.radarData);
         });
     };
     Radar.prototype.InitializeHandler = function () {
@@ -53,7 +54,7 @@ var Radar = (function (_super) {
         return function () {
             console.log('Arduino connected');
             for (var i = 5; i <= 8; i++) {
-                this.pinMode(i, this.MODES.OUTPUT);
+                radar.board.pinMode(i, PinMode.OUTPUT);
             }
             radar.startListening();
         };
@@ -61,6 +62,17 @@ var Radar = (function (_super) {
     return Radar;
 })(Emitter.EventEmitter);
 exports.Radar = Radar;
+var PinMode = (function () {
+    function PinMode() {
+    }
+    PinMode.INPUT = 0;
+    PinMode.OUTPUT = 1;
+    PinMode.ANALOG = 2;
+    PinMode.PWM = 3;
+    PinMode.SERVO = 4;
+    return PinMode;
+})();
+exports.PinMode = PinMode;
 var Motor = (function () {
     function Motor(board) {
         this.board = board;

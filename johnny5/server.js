@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var port = 3000; 
 var bodyParser = require('body-parser');
 
-var board = new five.Board({port:"com5"});
+var board = new five.Board({port:"com7"});
 var robot = require("./robot.js");
 var motor = new robot.Motor(board);
 var radar = new robot.Radar();
