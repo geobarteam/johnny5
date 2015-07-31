@@ -19,22 +19,24 @@ var Server = (function () {
         this.board = new five.Board({ port: this.serialPort });
         this.motor = new robot.Motor(this.board);
         this.radar = new robot.Radar(this.board);
+        this.accelerometer = new robot.Accelerometer(this.board, new robot.AccelerometerOption());
     }
     Server.prototype.startListening = function () {
+        var that = this;
         this.app.use(bodyParser.json());
         this.app.use(express.static(__dirname + '/public'));
         this.app.get('/', function (req, res) {
             console.log("Serving!");
             res.sendFile(__dirname + '/public/index.html');
         });
-        this.app.get('/radar', function (req, res) { res.status(200).send(this.radar.Data); });
-        this.app.post('/motor', this.motor.ActionHandler());
+        this.app.get('/radar', function (req, res) { res.status(200).send(that.radar.getData()); });
+        this.app.get('/accelerometer', function (req, res) { res.status(200).send(that.accelerometer.getData()); });
+        this.app.post('/motor', that.motor.actionHandler());
         this.httpServer.listen(this.tcpPort);
         console.log('Server available at http://localhost:' + this.tcpPort);
     };
     Server.prototype.startBoard = function () {
         var that = this;
-        this.board.on("ready", this.radar.InitializeHandler());
         //Socket connection handler
         this.io.sockets.on('connection', function (socket) {
             console.log(socket.id);

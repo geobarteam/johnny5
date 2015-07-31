@@ -22,41 +22,34 @@ var Radar = (function (_super) {
     function Radar(board) {
         this.radarData = new RadarData(0, 0, 0);
         this.board = board;
+        this.board.on("ready", this.initializeHandler);
         _super.call(this);
     }
-    Object.defineProperty(Radar.prototype, "Data", {
-        get: function () {
-            return this.radarData;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Radar.prototype.startListening = function () {
-        this.leftPing = new five.Ping(11);
-        this.middlePing = new five.Ping(12);
-        this.rightPing = new five.Ping(13);
-        var radar = this;
-        this.leftPing.on("change", function () {
-            radar.radarData.LeftValue = this.cm;
-            radar.emit("change", radar.radarData);
-        });
-        this.middlePing.on("change", function () {
-            radar.radarData.MiddleValue = this.cm;
-            radar.emit("change", radar.radarData);
-        });
-        this.rightPing.on("change", function () {
-            radar.radarData.RightValue = this.cm;
-            radar.emit("change", radar.radarData);
-        });
+    Radar.prototype.getData = function () {
+        return this.radarData;
     };
-    Radar.prototype.InitializeHandler = function () {
+    Radar.prototype.initializeHandler = function () {
         var radar = this;
         return function () {
             console.log('Arduino connected');
             for (var i = 5; i <= 8; i++) {
                 radar.board.pinMode(i, PinMode.OUTPUT);
             }
-            radar.startListening();
+            radar.leftPing = new five.Ping(11);
+            radar.middlePing = new five.Ping(12);
+            radar.rightPing = new five.Ping(13);
+            radar.leftPing.on("change", function () {
+                radar.radarData.LeftValue = this.cm;
+                radar.emit("change", radar.radarData);
+            });
+            radar.middlePing.on("change", function () {
+                radar.radarData.MiddleValue = this.cm;
+                radar.emit("change", radar.radarData);
+            });
+            radar.rightPing.on("change", function () {
+                radar.radarData.RightValue = this.cm;
+                radar.emit("change", radar.radarData);
+            });
         };
     };
     return Radar;
@@ -126,7 +119,7 @@ var Motor = (function () {
         this.board.digitalWrite(this.M2, this.HIGH);
         this.stopStep();
     };
-    Motor.prototype.ActionHandler = function () {
+    Motor.prototype.actionHandler = function () {
         var motor = this;
         return function (req, res) {
             console.log(req.body);
@@ -150,3 +143,47 @@ var Motor = (function () {
     return Motor;
 })();
 exports.Motor = Motor;
+var AccelerometerData = (function () {
+    function AccelerometerData() {
+    }
+    return AccelerometerData;
+})();
+exports.AccelerometerData = AccelerometerData;
+var AccelerometerOption = (function () {
+    function AccelerometerOption() {
+        this.controller = "MMA7361";
+        this.pins = ["A0", "A1", "A2"];
+        this.sleepPin = 13;
+        this.autoCalibrate = true;
+    }
+    return AccelerometerOption;
+})();
+exports.AccelerometerOption = AccelerometerOption;
+var Accelerometer = (function (_super) {
+    __extends(Accelerometer, _super);
+    function Accelerometer(board, option) {
+        this.board = board;
+        this.option = option;
+        this.data = new AccelerometerData();
+        var that = this;
+        this.board.on("ready", function () {
+            that.accelerometer = new five.Accelerometer(that.option);
+            that.accelerometer.on("change", function () {
+                that.data.acceleration = this.acceleration;
+                that.data.inclination = this.inclination;
+                that.data.orientation = this.orientation;
+                that.data.x = this.x;
+                that.data.y = this.y;
+                that.data.pitch = this.pitch;
+                that.data.roll = this.roll;
+                that.emit("change", that.data);
+            });
+        });
+        _super.call(this);
+    }
+    Accelerometer.prototype.getData = function () {
+        return this.data;
+    };
+    return Accelerometer;
+})(Emitter.EventEmitter);
+exports.Accelerometer = Accelerometer;

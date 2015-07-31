@@ -12,8 +12,12 @@ export class RadarData {
     }
 }
 
-export class Radar extends Emitter.EventEmitter {
+export interface IRadar extends NodeJS.EventEmitter {
+	getData(): RadarData;
+}
 
+export class Radar extends Emitter.EventEmitter implements IRadar{
+ 
 	radarData: RadarData;
 	leftPing: any;
 	middlePing: any;
@@ -23,36 +27,15 @@ export class Radar extends Emitter.EventEmitter {
 	public constructor(board:five.Board) {
 		this.radarData = new RadarData(0, 0, 0);
 		this.board = board;
+		this.board.on("ready", this.initializeHandler);
 		super();
 	}
 
-	get Data(): RadarData {
+	getData(): RadarData {
 		return this.radarData;
 	}
 
-	public startListening() {
-
-		this.leftPing = new five.Ping(11);
-		this.middlePing = new five.Ping(12);
-		this.rightPing = new five.Ping(13);
-
-		var radar = this;
-
-		this.leftPing.on("change", function() {
-			radar.radarData.LeftValue = this.cm;
-			radar.emit("change", radar.radarData);
-		});
-		this.middlePing.on("change", function() {
-			radar.radarData.MiddleValue = this.cm;
-			radar.emit("change", radar.radarData);
-		});
-		this.rightPing.on("change", function() {
-			radar.radarData.RightValue = this.cm;
-			radar.emit("change", radar.radarData);
-		});
-	}
-
-	public InitializeHandler(){
+	private initializeHandler(){
 		var radar = this;
 
 		return function(){ 
@@ -61,7 +44,22 @@ export class Radar extends Emitter.EventEmitter {
 		        radar.board.pinMode(i, PinMode.OUTPUT);
 		    }
 
-		    radar.startListening();
+		    radar.leftPing = new five.Ping(11);
+			radar.middlePing = new five.Ping(12);
+			radar.rightPing = new five.Ping(13);
+
+			radar.leftPing.on("change", function() {
+				radar.radarData.LeftValue = this.cm;
+				radar.emit("change", radar.radarData);
+			});
+			radar.middlePing.on("change", function() {
+				radar.radarData.MiddleValue = this.cm;
+				radar.emit("change", radar.radarData);
+			});
+			radar.rightPing.on("change", function() {
+				radar.radarData.RightValue = this.cm;
+				radar.emit("change", radar.radarData);
+			});
 		}
 	}
 }
@@ -74,7 +72,16 @@ export class PinMode {
 	static SERVO = 4;
 }
 
-export class Motor {
+export interface IMotor {
+	actionHandler():any;
+	stop();
+	forward();
+	left();
+	right();
+	reverse();
+}
+
+export class Motor implements IMotor{
 
 	board: any;
 	speedL: number;
@@ -96,9 +103,9 @@ export class Motor {
 		this.M2 = 7; //M2 Direction Control
 		this.LOW = 0;
 		this.HIGH = 1;
-}
+	}
 
-	stopStep() {
+	private stopStep() {
 		var that = this;
 		this.board.wait(1000, function() {
 			that.board.digitalWrite(that.E1, that.LOW);
@@ -145,30 +152,82 @@ export class Motor {
 		this.stopStep();
 	}
 
-	public ActionHandler(){
+	public actionHandler(){
 		var motor = this;
         return function(req,res){
-        console.log(req.body);
-        if (req.body.action =="forward"){
-            motor.forward();
-        }
-        if (req.body.action =="stop"){
-            motor.stop();
-        }
-        if (req.body.action =="reverse"){
-            motor.reverse();
-        }
-        if (req.body.action =="left"){
-            motor.left();
-        }
-        if (req.body.action =="right"){
-            motor.right();
-        }
-    }
+        	console.log(req.body);
+	        if (req.body.action =="forward"){
+	            motor.forward();
+	        }
+	        if (req.body.action =="stop"){
+	            motor.stop();
+	        }
+	        if (req.body.action =="reverse"){
+	            motor.reverse();
+	        }
+	        if (req.body.action =="left"){
+	            motor.left();
+	        }
+	        if (req.body.action =="right"){
+	            motor.right();
+	        }
+    	}
+	}	
 }
 
-
+export class AccelerometerData{
+	public x: number;
+	public y: number;
+	public z: number;
+	public pitch: number;
+	public roll: number;
+	public acceleration: number;
+	public inclination: number;
+	public orientation: number;
 }
 
+export interface IAccelerometer extends NodeJS.EventEmitter{
+	getData(): AccelerometerData;		
+}
 
+export class AccelerometerOption implements five.AccelerometerMMA7361Option{
+	controller = "MMA7361";
+    pins = ["A0", "A1", "A2"];
+    sleepPin= 13;
+    autoCalibrate= true;
+}
+
+export class Accelerometer extends Emitter.EventEmitter implements IAccelerometer{
+	accelerometer: five.Accelerometer;
+	board: five.Board;
+	data: AccelerometerData;
+	option: five.AccelerometerMMA7361Option;
+
+	constructor(board: five.Board, option: five.AccelerometerMMA7361Option){
+		this.board = board;
+		this.option = option;
+		this.data = new AccelerometerData();
+		var that = this;
+		this.board.on("ready", function(){
+			that.accelerometer = new five.Accelerometer(that.option);
+			that.accelerometer.on("change", function() {
+				that.data.acceleration = this.acceleration;
+				that.data.inclination = this.inclination;
+				that.data.orientation = this.orientation;
+				that.data.x = this.x;
+				that.data.y = this.y;
+				that.data.pitch = this.pitch;
+				that.data.roll = this.roll;
+				that.emit("change", that.data)
+			});
+		})
+		
+		super();
+	}
+
+	public getData(): AccelerometerData{
+		return this.data;
+	}
+	
+}
 

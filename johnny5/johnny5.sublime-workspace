@@ -4,6 +4,122 @@
 		"selected_items":
 		[
 			[
+				"a",
+				"app	property"
+			],
+			[
+				"Accelerometer",
+				"AccelerometerOption	class"
+			],
+			[
+				"A",
+				"AccelerometerData	class"
+			],
+			[
+				"o",
+				"option	property"
+			],
+			[
+				"D",
+				"data	property"
+			],
+			[
+				"Acc",
+				"AccelerometerData	class"
+			],
+			[
+				"Ac",
+				"AccelerometerOption	interface"
+			],
+			[
+				"Node",
+				"NodeJS	module"
+			],
+			[
+				"s",
+				"startBoard	method"
+			],
+			[
+				"con",
+				"console	var"
+			],
+			[
+				"st",
+				"startServer	method"
+			],
+			[
+				"ser",
+				"serialPort	parameter"
+			],
+			[
+				"Se",
+				"Server	class"
+			],
+			[
+				"cr",
+				"createServer	function"
+			],
+			[
+				"htt",
+				"httpServer	var"
+			],
+			[
+				"R",
+				"Radar	class"
+			],
+			[
+				"fi",
+				"five	alias"
+			],
+			[
+				"S",
+				"Server	class"
+			],
+			[
+				"c",
+				"createServer	function"
+			],
+			[
+				"http",
+				"httpServer	var"
+			],
+			[
+				"exp",
+				"express	alias"
+			],
+			[
+				"const",
+				"constructor	keyword"
+			],
+			[
+				"Jo",
+				"Johnny5	module"
+			],
+			[
+				"bo",
+				"bodyParser"
+			],
+			[
+				"e",
+				"express"
+			],
+			[
+				"r",
+				"right	method"
+			],
+			[
+				"star",
+				"startEmitting	method"
+			],
+			[
+				"sta",
+				"starListening	method"
+			],
+			[
+				"M",
+				"Motor	alias"
+			],
+			[
 				"nu",
 				"number	keyword"
 			],
@@ -26,10 +142,6 @@
 			[
 				"serv",
 				"serviceId"
-			],
-			[
-				"r",
-				"right"
 			],
 			[
 				"f",
@@ -84,10 +196,77 @@
 	"buffers":
 	[
 		{
-			"file": "public/services/motorService.js",
+			"file": "app.ts",
 			"settings":
 			{
-				"buffer_size": 617,
+				"buffer_size": 3406,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "lib/express.d.ts",
+			"settings":
+			{
+				"buffer_size": 37901,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "node_modules/express/Readme.md",
+			"settings":
+			{
+				"buffer_size": 4406,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "lib/body-parser.d.ts",
+			"settings":
+			{
+				"buffer_size": 4880,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "robot.js",
+			"settings":
+			{
+				"buffer_size": 6467,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "///<reference path=\".\\Contracts.ts\" />\n///<reference path=\".\\lib\\node.d.ts\"/>\n///<reference path=\".\\lib\\johnny-five.d.ts\"/>\nvar __extends = (this && this.__extends) || function (d, b) {\n    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];\n    function __() { this.constructor = d; }\n    __.prototype = b.prototype;\n    d.prototype = new __();\n};\nvar five = require('johnny-five');\nvar Emitter = require('events');\nvar Johnny5;\n(function (Johnny5) {\n    var RadarData = (function () {\n        function RadarData(LeftValue, MiddleValue, RightValue) {\n            this.LeftValue = LeftValue;\n            this.MiddleValue = MiddleValue;\n            this.RightValue = RightValue;\n        }\n        return RadarData;\n    })();\n    Johnny5.RadarData = RadarData;\n    var Radar = (function (_super) {\n        __extends(Radar, _super);\n        function Radar() {\n            this.radarData = new RadarData(0, 0, 0);\n            _super.call(this);\n        }\n        Object.defineProperty(Radar.prototype, \"Data\", {\n            get: function () {\n                return this.radarData;\n            },\n            enumerable: true,\n            configurable: true\n        });\n        Radar.prototype.startListening = function () {\n            this.leftPing = new five.Ping(11);\n            this.middlePing = new five.Ping(12);\n            this.rightPing = new five.Ping(13);\n            var that = this;\n            this.leftPing.on(\"change\", function () {\n                that.radarData.LeftValue = this.cm;\n                that.emit(\"change\", that.radarData);\n            });\n            this.middlePing.on(\"change\", function () {\n                that.radarData.MiddleValue = this.cm;\n                that.emit(\"change\", that.radarData);\n            });\n            this.rightPing.on(\"change\", function () {\n                that.radarData.RightValue = this.cm;\n                that.emit(\"change\", that.radarData);\n            });\n        };\n        return Radar;\n    })(Emitter.EventEmitter);\n    Johnny5.Radar = Radar;\n})(Johnny5 = exports.Johnny5 || (exports.Johnny5 = {}));\nmodule.exports = Johnny5.Radar;\n",
+			"file": "radar.js",
+			"file_size": 2162,
+			"file_write_time": 130824082669604210,
+			"settings":
+			{
+				"buffer_size": 2104,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "///<reference path=\".\\contracts\\RadarData.ts\" />\n///<reference path=\".\\lib\\node.d.ts\"/>\n///<reference path=\".\\lib\\johnny-five.d.ts\"/>\nvar __extends = this.__extends || function (d, b) {\n    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];\n    function __() { this.constructor = d; }\n    __.prototype = b.prototype;\n    d.prototype = new __();\n};\nvar five = require('johnny-five');\nvar Emitter = require('events');\nvar Johnny5;\n(function (Johnny5) {\n    var RadarData = (function () {\n        function RadarData(LeftValue, MiddleValue, RightValue) {\n            this.LeftValue = LeftValue;\n            this.MiddleValue = MiddleValue;\n            this.RightValue = RightValue;\n        }\n        return RadarData;\n    })();\n    Johnny5.RadarData = RadarData;\n    var Radar = (function (_super) {\n        __extends(Radar, _super);\n        function Radar() {\n            this.radarData = new RadarData(0, 0, 0);\n            _super.call(this);\n        }\n        Radar.prototype.startListening = function () {\n            this.leftPing = new five.Ping(11);\n            this.middlePing = new five.Ping(12);\n            this.rightPing = new five.Ping(13);\n            var that = this;\n            this.leftPing.on(\"change\", function () {\n                that.radarData.LeftValue = this.cm;\n                that.emit(\"change\", that.radarData);\n            });\n            this.middlePing.on(\"change\", function () {\n                that.radarData.MiddleValue = this.cm;\n                that.emit(\"change\", that.radarData);\n            });\n            this.rightPing.on(\"change\", function () {\n                that.radarData.RightValue = this.cm;\n                that.emit(\"change\", that.radarData);\n            });\n        };\n        return Radar;\n    })(Emitter.EventEmitter);\n    Johnny5.Radar = Radar;\n})(Johnny5 || (Johnny5 = {}));\nmodule.exports = Johnny5.Radar;\n//# sourceMappingURL=radar.js.map",
+			"settings":
+			{
+				"buffer_size": 1896,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/socketio.d.ts",
+			"settings":
+			{
+				"buffer_size": 21495,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/johnny-five.d.ts",
+			"settings":
+			{
+				"buffer_size": 17109,
 				"line_ending": "Unix"
 			}
 		},
@@ -95,79 +274,92 @@
 			"file": "server.js",
 			"settings":
 			{
-				"buffer_size": 1639,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "motor.js",
-			"settings":
-			{
-				"buffer_size": 2053,
+				"buffer_size": 1937,
 				"line_ending": "Windows"
 			}
 		},
 		{
+			"file": "accelerometer.js",
+			"settings":
+			{
+				"buffer_size": 1389,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "lib/node.d.ts",
+			"settings":
+			{
+				"buffer_size": 86585,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app.js.map",
+			"settings":
+			{
+				"buffer_size": 3599,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app.js",
+			"settings":
+			{
+				"buffer_size": 3113,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "node_modules/socket.io/lib/index.js",
+			"settings":
+			{
+				"buffer_size": 8659,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "module Johnny5 {\n	export class Motor {\n\n		board: any;\n		speedL: number;\n		speedR: number;\n		E1: number;\n		E2: number;\n		M1: number;\n		M2: number;\n		LOW: number;\n		HIGH: number;\n\n		constructor(board: any) {\n			this.board = board;\n			this.speedL = 1;\n			this.speedR = 1;\n		this.E1 = 6; //M1 Speed Control \n		this.E2 = 5; //M2 Speed Control \n		this.M1 = 8; //M1 Direction Control \n		this.M2 = 7; //M2 Direction Control\n		this.LOW = 0;\n		this.HIGH = 1;\n	}\n\n	stopStep() {\n		var that = this;\n		this.board.wait(1000, function() {\n			that.board.digitalWrite(that.E1, that.LOW);\n		});\n		this.board.wait(800, function() {\n			that.board.digitalWrite(that.E2, that.LOW);\n		});\n	}\n\n	forward() {\n		this.board.analogWrite(this.E1, this.speedR);\n		this.board.digitalWrite(this.M1, this.LOW);\n		this.board.analogWrite(this.E2, this.speedL);\n		this.board.digitalWrite(this.M2, this.LOW);\n		this.stopStep();\n	}\n\n	stop() {\n		this.board.digitalWrite(this.E1, this.LOW);\n		this.board.digitalWrite(this.E2, this.LOW);\n	}\n\n	reverse() {\n		this.board.analogWrite(this.E1, this.speedR);\n		this.board.digitalWrite(this.M1, this.HIGH);\n		this.board.analogWrite(this.E2, this.speedL);\n		this.board.digitalWrite(this.M2, this.HIGH);\n		this.stopStep();\n	}\n\n	left() {\n		this.board.analogWrite(this.E1, this.speedR);\n		this.board.digitalWrite(this.M1, this.HIGH);\n		this.board.analogWrite(this.E2, this.speedL);\n		this.board.digitalWrite(this.M2, this.LOW);\n		this.stopStep();\n	}\n\n	right(left, right) {\n		this.board.analogWrite(this.E1, this.speedR);\n		this.board.digitalWrite(this.M1, this.LOW);\n		this.board.analogWrite(this.E2, this.speedL);\n		this.board.digitalWrite(this.M2, this.HIGH);\n		this.stopStep();\n	}\n}\n}\nmodule.exports = Johnny5.Motor;",
 			"file": "motor.ts",
+			"file_size": 1788,
+			"file_write_time": 130824082669364048,
 			"settings":
 			{
-				"buffer_size": 1707,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "ar test = \"hello world\";\nconsole.log(test);\n",
-			"file": "test.js",
-			"file_size": 47,
-			"file_write_time": 130812645704034978,
-			"settings":
-			{
-				"buffer_size": 44,
+				"buffer_size": 1715,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "Package Control Messages\n========================\n\nPackage Control:\n---------------\n\n  Version 3.0 Release Notes\n  \n  \n  **** Windows Sublime Text 3 Users ****\n  \n  Due to a bug in Package Control 2.0, Windows ST3 users will need to open the\n  Sublime Text console (ctrl+`) and execute the following Python to properly\n  upgrade. All other users may ignore this part of the message.\n  \n  Make sure NOT to copy the leading two spaces, or an \"unexpected indent\" error\n  will occur.\n  \n  import urllib.request,os,sys; exec(\"if sys.version_info < (3,) or os.name != 'nt': raise OSError('This code is for Windows ST3 only!')\"); pr='Preferences.sublime-settings'; ip='ignored_packages'; n='Package Control'; s=sublime.load_settings(pr); ig=s.get(ip); ig.append(n); s.set(ip,ig); sublime.save_settings('Preferences.sublime-settings'); pf=n+'.sublime-package'; urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler())); by=urllib.request.urlopen('https://packagecontrol.io/'+pf.replace(' ','%20')).read(); open(os.path.join(sublime.installed_packages_path(),pf),'wb').write(by); ig.remove(n); s.set(ip,ig); sublime.save_settings(pr); print('Package Control: 3.0.0 upgrade successful!')\n  \n  ********\n  \n  \n  Package Control 3.0 adds a bunch of polish, improving the Sublime Text\n  experience for users and package developers:\n  \n   - improved upgrades of themes, color schemes and syntaxes\n   - dependency support\n   - SSL for Linux\n   - new secondary Windows HTTP backend\n   - patches for Python in Sublime Text 2 on Windows\n   - commands to easily remove channels and repositories\n   - an events API for packages\n   - improved documentation\n  \n  \n  As of July 2014, I now work for myself. This has allowed me to spend more time\n  working on open source software, including Package Control. If you appreciate\n  the work I've done, please consider a small donation. If even 5% of regular\n  users donated the price of a coffee or beer, that would cover quite a bit of\n  my development time! See https://packagecontrol.io/about for options.\n  \n  \n  Some recent Package Control stats:\n  \n   - every weekday over 1M JSON requests hit the channel server\n   - in December, the channel server will transmit 4TB+ of compressed JSON\n   - users have installed, upgraded or removed 85M+ packages since late 2011\n  \n  \n  Read more about the release at:\n  \n  https://packagecontrol.io/news#2014-12-23-Package_Control_30_Released\n  \n\n\nPackage Control:\n---------------\n\n  Version 3.0 Release Notes\n  \n  \n  **** Windows Sublime Text 3 Users ****\n  \n  Due to a bug in Package Control 2.0, Windows ST3 users will need to open the\n  Sublime Text console (ctrl+`) and execute the following Python to properly\n  upgrade. All other users may ignore this part of the message.\n  \n  Make sure NOT to copy the leading two spaces, or an \"unexpected indent\" error\n  will occur.\n  \n  import urllib.request,os,sys; exec(\"if sys.version_info < (3,) or os.name != 'nt': raise OSError('This code is for Windows ST3 only!')\"); pr='Preferences.sublime-settings'; ip='ignored_packages'; n='Package Control'; s=sublime.load_settings(pr); ig=s.get(ip); ig.append(n); s.set(ip,ig); sublime.save_settings('Preferences.sublime-settings'); pf=n+'.sublime-package'; urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler())); by=urllib.request.urlopen('https://packagecontrol.io/'+pf.replace(' ','%20')).read(); open(os.path.join(sublime.installed_packages_path(),pf),'wb').write(by); ig.remove(n); s.set(ip,ig); sublime.save_settings(pr); print('Package Control: 3.0.0 upgrade successful!')\n  \n  ********\n  \n  \n  Package Control 3.0 adds a bunch of polish, improving the Sublime Text\n  experience for users and package developers:\n  \n   - improved upgrades of themes, color schemes and syntaxes\n   - dependency support\n   - SSL for Linux\n   - new secondary Windows HTTP backend\n   - patches for Python in Sublime Text 2 on Windows\n   - commands to easily remove channels and repositories\n   - an events API for packages\n   - improved documentation\n  \n  \n  As of July 2014, I now work for myself. This has allowed me to spend more time\n  working on open source software, including Package Control. If you appreciate\n  the work I've done, please consider a small donation. If even 5% of regular\n  users donated the price of a coffee or beer, that would cover quite a bit of\n  my development time! See https://packagecontrol.io/about for options.\n  \n  \n  Some recent Package Control stats:\n  \n   - every weekday over 1M JSON requests hit the channel server\n   - in December, the channel server will transmit 4TB+ of compressed JSON\n   - users have installed, upgraded or removed 85M+ packages since late 2011\n  \n  \n  Read more about the release at:\n  \n  https://packagecontrol.io/news#2014-12-23-Package_Control_30_Released\n  \n",
+			"contents": "Package Control Messages\n========================\n\nPackage Control:\n---------------\n\n  Version 3.0 Release Notes\n  \n  \n  **** Windows Sublime Text 3 Users ****\n  \n  Due to a bug in Package Control 2.0, Windows ST3 users will need to open the\n  Sublime Text console (ctrl+`) and execute the following Python to properly\n  upgrade. All other users may ignore this part of the message.\n  \n  Make sure NOT to copy the leading two spaces, or an \"unexpected indent\" error\n  will occur.\n  \n  import urllib.request,os,sys; exec(\"if sys.version_info < (3,) or os.name != 'nt': raise OSError('This code is for Windows ST3 only!')\"); pr='Preferences.sublime-settings'; ip='ignored_packages'; n='Package Control'; s=sublime.load_settings(pr); ig=s.get(ip); ig.append(n); s.set(ip,ig); sublime.save_settings('Preferences.sublime-settings'); pf=n+'.sublime-package'; urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler())); by=urllib.request.urlopen('https://packagecontrol.io/'+pf.replace(' ','%20')).read(); open(os.path.join(sublime.installed_packages_path(),pf),'wb').write(by); ig.remove(n); s.set(ip,ig); sublime.save_settings(pr); print('Package Control: 3.0.0 upgrade successful!')\n  \n  ********\n  \n  \n  Package Control 3.0 adds a bunch of polish, improving the Sublime Text\n  experience for users and package developers:\n  \n   - improved upgrades of themes, color schemes and syntaxes\n   - dependency support\n   - SSL for Linux\n   - new secondary Windows HTTP backend\n   - patches for Python in Sublime Text 2 on Windows\n   - commands to easily remove channels and repositories\n   - an events API for packages\n   - improved documentation\n  \n  \n  As of July 2014, I now work for myself. This has allowed me to spend more time\n  working on open source software, including Package Control. If you appreciate\n  the work I've done, please consider a small donation. If even 5% of regular\n  users donated the price of a coffee or beer, that would cover quite a bit of\n  my development time! See https://packagecontrol.io/about for options.\n  \n  \n  Some recent Package Control stats:\n  \n   - every weekday over 1M JSON requests hit the channel server\n   - in December, the channel server will transmit 4TB+ of compressed JSON\n   - users have installed, upgraded or removed 85M+ packages since late 2011\n  \n  \n  Read more about the release at:\n  \n  https://packagecontrol.io/news#2014-12-23-Package_Control_30_Released\n  \n\n\nPackage Control:\n---------------\n\n  Version 3.0 Release Notes\n  \n  \n  **** Windows Sublime Text 3 Users ****\n  \n  Due to a bug in Package Control 2.0, Windows ST3 users will need to open the\n  Sublime Text console (ctrl+`) and execute the following Python to properly\n  upgrade. All other users may ignore this part of the message.\n  \n  Make sure NOT to copy the leading two spaces, or an \"unexpected indent\" error\n  will occur.\n  \n  import urllib.request,os,sys; exec(\"if sys.version_info < (3,) or os.name != 'nt': raise OSError('This code is for Windows ST3 only!')\"); pr='Preferences.sublime-settings'; ip='ignored_packages'; n='Package Control'; s=sublime.load_settings(pr); ig=s.get(ip); ig.append(n); s.set(ip,ig); sublime.save_settings('Preferences.sublime-settings'); pf=n+'.sublime-package'; urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler())); by=urllib.request.urlopen('https://packagecontrol.io/'+pf.replace(' ','%20')).read(); open(os.path.join(sublime.installed_packages_path(),pf),'wb').write(by); ig.remove(n); s.set(ip,ig); sublime.save_settings(pr); print('Package Control: 3.0.0 upgrade successful!')\n  \n  ********\n  \n  \n  Package Control 3.0 adds a bunch of polish, improving the Sublime Text\n  experience for users and package developers:\n  \n   - improved upgrades of themes, color schemes and syntaxes\n   - dependency support\n   - SSL for Linux\n   - new secondary Windows HTTP backend\n   - patches for Python in Sublime Text 2 on Windows\n   - commands to easily remove channels and repositories\n   - an events API for packages\n   - improved documentation\n  \n  \n  As of July 2014, I now work for myself. This has allowed me to spend more time\n  working on open source software, including Package Control. If you appreciate\n  the work I've done, please consider a small donation. If even 5% of regular\n  users donated the price of a coffee or beer, that would cover quite a bit of\n  my development time! See https://packagecontrol.io/about for options.\n  \n  \n  Some recent Package Control stats:\n  \n   - every weekday over 1M JSON requests hit the channel server\n   - in December, the channel server will transmit 4TB+ of compressed JSON\n   - users have installed, upgraded or removed 85M+ packages since late 2011\n  \n  \n  Read more about the release at:\n  \n  https://packagecontrol.io/news#2014-12-23-Package_Control_30_Released\n  \n\n\nPackage Control:\n---------------\n\n  Version 3.0 Release Notes\n  \n  \n  **** Windows Sublime Text 3 Users ****\n  \n  Due to a bug in Package Control 2.0, Windows ST3 users will need to open the\n  Sublime Text console (ctrl+`) and execute the following Python to properly\n  upgrade. All other users may ignore this part of the message.\n  \n  Make sure NOT to copy the leading two spaces, or an \"unexpected indent\" error\n  will occur.\n  \n  import urllib.request,os,sys; exec(\"if sys.version_info < (3,) or os.name != 'nt': raise OSError('This code is for Windows ST3 only!')\"); pr='Preferences.sublime-settings'; ip='ignored_packages'; n='Package Control'; s=sublime.load_settings(pr); ig=s.get(ip); ig.append(n); s.set(ip,ig); sublime.save_settings('Preferences.sublime-settings'); pf=n+'.sublime-package'; urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler())); by=urllib.request.urlopen('https://packagecontrol.io/'+pf.replace(' ','%20')).read(); open(os.path.join(sublime.installed_packages_path(),pf),'wb').write(by); ig.remove(n); s.set(ip,ig); sublime.save_settings(pr); print('Package Control: 3.0.0 upgrade successful!')\n  \n  ********\n  \n  \n  Package Control 3.0 adds a bunch of polish, improving the Sublime Text\n  experience for users and package developers:\n  \n   - improved upgrades of themes, color schemes and syntaxes\n   - dependency support\n   - SSL for Linux\n   - new secondary Windows HTTP backend\n   - patches for Python in Sublime Text 2 on Windows\n   - commands to easily remove channels and repositories\n   - an events API for packages\n   - improved documentation\n  \n  \n  As of July 2014, I now work for myself. This has allowed me to spend more time\n  working on open source software, including Package Control. If you appreciate\n  the work I've done, please consider a small donation. If even 5% of regular\n  users donated the price of a coffee or beer, that would cover quite a bit of\n  my development time! See https://packagecontrol.io/about for options.\n  \n  \n  Some recent Package Control stats:\n  \n   - every weekday over 1M JSON requests hit the channel server\n   - in December, the channel server will transmit 4TB+ of compressed JSON\n   - users have installed, upgraded or removed 85M+ packages since late 2011\n  \n  \n  Read more about the release at:\n  \n  https://packagecontrol.io/news#2014-12-23-Package_Control_30_Released\n  \n",
 			"settings":
 			{
-				"buffer_size": 4837,
+				"buffer_size": 7231,
 				"line_ending": "Unix",
 				"name": "Package Control Messages",
 				"scratch": true
 			}
 		},
 		{
-			"file": "public/index.html",
+			"file": ".bowerrc",
 			"settings":
 			{
-				"buffer_size": 4503,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/C/tools/cygwin/home/Geoffrey/ubuntuDesktop/provision.sh",
-			"settings":
-			{
-				"buffer_size": 647,
+				"buffer_size": 184,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "(function() {\n    'use strict';\n    var controllerId = \"dashboardController\";\n    angular.module('johnny5').controller(controllerId, ['$scope', 'motorService','mySocket', dashboardController]);\n\n    function dashboardController($scope, motorService, mySocket) {\n        mySocket.on('motor', function(data){\n            $scope.motorState = data;\n        })    \n\n        $scope.forward = function() {\n            motorService.forward();\n        };\n\n        $scope.stop = function() {\n            motorService.stop();\n        };\n\n        $scope.reverse = function() {\n            motorService.reverse();\n        };\n\n        $scope.left = function() {\n            motorService.left();\n        };\n\n        $scope.right = function() {\n            motorService.right();\n        };\n    }\n})();",
-			"file": "public/dashboard/dashboardcontroller.js",
-			"file_size": 785,
-			"file_write_time": 130813624231979109,
+			"file": "/C/Dev/arduino/johnny5_old/radar.ts",
 			"settings":
 			{
-				"buffer_size": 785,
+				"buffer_size": 1125,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/C/tools/cygwin/home/Geoffrey/ubuntu64/provision.sh",
+			"file": "robot.ts",
 			"settings":
 			{
-				"buffer_size": 452,
+				"buffer_size": 5451,
 				"line_ending": "Windows"
 			}
 		}
@@ -215,10 +407,18 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 127.0,
-		"last_filter": "git STAT",
+		"height": 392.0,
+		"last_filter": "pack",
 		"selected_items":
 		[
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"reinde",
+				"Indentation: Reindent Lines"
+			],
 			[
 				"git STAT",
 				"Git: Status"
@@ -276,10 +476,6 @@
 				"Package Control: Install Package"
 			],
 			[
-				"pack",
-				"Package Control: Install Package"
-			],
-			[
 				"package ",
 				"Package Control: Install Package"
 			],
@@ -292,7 +488,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 400.0
+		"width": 416.0
 	},
 	"console":
 	{
@@ -317,32 +513,64 @@
 	"expanded_folders":
 	[
 		"/C/Dev/arduino/johnny5",
-		"/C/Dev/arduino/johnny5/node_modules",
-		"/C/Dev/arduino/johnny5/public",
-		"/C/Dev/arduino/johnny5/public/dashboard",
-		"/C/Dev/arduino/johnny5/public/img",
-		"/C/Dev/arduino/johnny5/public/services"
+		"/C/Dev/arduino/johnny5/lib"
 	],
 	"file_history":
 	[
-		"/C/Dev/arduino/johnny5/ping.js",
-		"/C/Dev/arduino/johnny5/hello.js",
-		"/C/Dev/arduino/johnny5/motor.ts",
-		"/C/Dev/arduino/johnny5/accelerometer.js",
-		"/C/Dev/arduino/johnny5/motor.js",
-		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Dev/arduino/johnny5/robot.ts",
+		"/C/Dev/arduino/johnny5/node_modules/johnny-five/lib/accelerometer.js",
 		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
-		"/C/Dev/arduino/johnny5/public/dashboard/dashboardcontroller.js",
-		"/C/Dev/arduino/johnny5/public/app.js",
-		"/C/Dev/arduino/johnny5/public/index.html",
-		"/C/Dev/arduino/johnny5/public/services/motorService.js",
-		"/C/Dev/arduino/johnny5/public/img/background.png",
-		"/C/Dev/arduino/johnny5/avanti.js",
+		"/C/Dev/arduino/johnny5/node_modules/johnny-five/lib/board.js",
+		"/C/Dev/arduino/johnny5/lib/serve-static.d.ts",
+		"/C/Dev/arduino/johnny5/lib/mime.d.ts",
+		"/C/Dev/arduino/johnny5/lib/express.d.ts",
+		"/C/Dev/arduino/johnny5/node_modules/express/History.md",
+		"/C/Dev/arduino/johnny5/node_modules/express/Readme.md",
+		"/C/Dev/arduino/johnny5/lib/node.d.ts",
+		"/C/Dev/arduino/johnny5/node_modules/socket.io/Readme.md",
+		"/C/Dev/arduino/johnny5/node_modules/socket.io/History.md",
+		"/C/Dev/arduino/johnny5/accelerometer.js",
+		"/C/Dev/arduino/johnny5/lib/body-parser.d.ts",
+		"/C/Dev/arduino/johnny5/lib/express2.d.ts",
+		"/C/Dev/arduino/johnny5/lib/socketio.d.ts",
+		"/C/Dev/arduino/johnny5/server.ts",
+		"/C/Dev/arduino/johnny5/radar.ts",
+		"/C/Dev/arduino/johnny5/accelerometer.ts",
+		"/C/Dev/arduino/johnny5_old/radar.js",
+		"/C/Dev/arduino/johnny5/radar.js",
+		"/C/Dev/arduino/johnny5_old/Contracts.js",
+		"/C/Dev/arduino/johnny5/motor.js",
+		"/C/Dev/arduino/johnny5/johnny5.sublime-project",
 		"/C/Dev/arduino/johnny5/server.js",
+		"/C/Dev/arduino/johnny5/motor.ts",
+		"/C/Dev/arduino/johnny5/avanti.js",
+		"/C/Dev/arduino/johnny5/lib/johnny-five.d.ts",
+		"/C/Dev/arduino/johnny5/Contracts.js.map",
+		"/C/Dev/arduino/johnny5/Contracts.ts",
+		"/C/Dev/arduino/johnny5/main.ts",
+		"/C/Dev/arduino/johnny5/main.js",
+		"/C/Dev/arduino/johnny5/Contracts.js",
+		"/C/Dev/arduino/johnny5/main.js.map",
+		"/C/Dev/arduino/johnny5/ping.js",
+		"/C/Dev/arduino/johnny5/contracts/RadarData.ts",
+		"/C/Dev/arduino/johnny5/contracts/RadarData.js",
+		"/C/Dev/arduino/johnny5/radar.js.map",
+		"/C/Dev/arduino/johnny5/public/services/motorService.js",
+		"/C/Dev/arduino/johnny5/public/dashboard/dashboardcontroller.js",
+		"/C/Dev/arduino/johnny5/hello.js",
+		"/C/Dev/arduino/johnny5/johnny5.njsproj",
+		"/C/Dev/arduino/johnny5/node_modules/johnny-five/lib/ping.js",
+		"/C/Dev/arduino/johnny5/public/index.html",
+		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Dev/arduino/johnny5/test.js",
+		"/C/tools/cygwin/home/Geoffrey/ubuntuDesktop/provision.sh",
+		"/C/tools/cygwin/home/Geoffrey/ubuntu64/provision.sh",
+		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/TypeScript/TypeScript.sublime-build",
+		"/C/Dev/arduino/johnny5/public/app.js",
+		"/C/Dev/arduino/johnny5/public/img/background.png",
 		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/Node-Debug.sublime-build",
 		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/node.sublime-build",
 		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/Node.sublime-build",
-		"/C/Dev/arduino/johnny5/johnny5.sublime-project",
 		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/User/View In Browser.sublime-settings",
 		"/C/Dev/arduino/johnny5/node_modules/bower/package.json",
 		"/C/Users/Geoffrey/AppData/Roaming/Sublime Text 3/Packages/View In Browser/View In Browser.sublime-settings",
@@ -358,10 +586,8 @@
 		"/C/Dev/arduino/dfrover/basicscketch/basicscketch.ino",
 		"/C/Users/Geoffrey/Downloads/ping.fzz",
 		"/C/Dev/arduino/johnny5/bower.json",
-		"/C/Dev/arduino/johnny5/node_modules/socket.io/Readme.md",
 		"/C/Users/Geoffrey/Go/src/github.com/geobarteam/go/tour/imports/imports.go",
 		"/C/Users/Geoffrey/Go/src/github.com/user/stringutil/reverse.go",
-		"/C/tools/cygwin/home/Geoffrey/ubuntu64/provision.sh",
 		"/C/tools/cygwin/home/Geoffrey/ubuntu64/Vagrantfile",
 		"/C/Users/Geoffrey/Go/src/github.com/user/hello/hello.go",
 		"/C/Users/Geoffrey/Go/helloworld.go",
@@ -418,41 +644,7 @@
 		"/C/tools/cygwin/home/Geoffrey/Vagrantfile",
 		"/C/tools/cygwin/home/Geoffrey/centos/Vagrantfile",
 		"/C/ProgramData/chocolatey/lib/git.install.1.9.4.20140929/tools/chocolateyInstall.ps1",
-		"/C/ProgramData/chocolatey/lib/git.1.9.4.20140929/tools/chocolateyInstall.ps1",
-		"/C/ProgramData/chocolatey/lib/git.1.9.5.20150114/tools/chocolateyInstall.ps1",
-		"/C/ProgramData/chocolatey/lib/nodejs.install.0.12.0/tools/chocolateyInstall.ps1",
-		"/C/Users/Geoffrey/Downloads/images.json",
-		"/C/tools/cygwin/home/Geoffrey/Share/scripts/loop2.sh",
-		"/C/tools/cygwin/home/Geoffrey/Share/loop.sh",
-		"/C/tools/cygwin/home/Geoffrey/mongodb/standalone.pp",
-		"/C/Dev/vagrant/webdeploy/provision-web.ps1",
-		"/C/Dev/vagrant/webdeploy/Vagrantfile",
-		"/C/Dev/vagrant/dsc/Vagrantfile",
-		"/C/Dev/GolfLabelV2/src/BackToOwner.Golf.BackOffice/GolfLabel.BackOffice.lsxproj",
-		"/C/Dev/styles.css",
-		"/C/Dev/BikesLabel/src/BackToOwner.Golf.Web/Global.asax",
-		"/C/Users/Geoffrey/Downloads/ui-grid.info-gh-pages/ui-grid.info-gh-pages/index.html",
-		"/C/tools/cygwin/home/Geoffrey/nginx/provision.sh",
-		"/C/tools/cygwin/home/Geoffrey/nginx/Vagrantfile",
-		"/C/Dev/vagrant/dsc/.vagrant/machines/default/virtualbox/synced_folders",
-		"/C/Windows/System32/drivers/etc/hosts",
-		"/C/Users/Geoffrey/SkyDrive/My Books/Dan Simon/Simmons,Dan-[Cantos d'Hyperion-1]Hyperion 1(1989).French.ebook.AlexandriZ.epub",
-		"/C/Dev/vagrant/dsc/provision-dsc.ps1",
-		"/C/Dev/DevoSpace/Publish/devospace-package/tools/deploy.cmd",
-		"/C/Users/Geoffrey/Desktop/btotouringDB.xml",
-		"/C/Dev/Cessna/Trunk/Fluxys.Cessna/Server/DataSources/CSCMData/business_systems.lsml",
-		"/C/Dev/Cessna/Trunk/Fluxys.Cessna/Server/GeneratedArtifacts/EntityG01.cs",
-		"/C/Dev/Cessna/Trunk/Fluxys.Cessna/Server/GeneratedArtifacts/EntityG02.cs",
-		"/C/Dev/Cessna/Trunk/Fluxys.Cessna/Server/GeneratedArtifacts/EntityG03.cs",
-		"/C/Dev/Cessna/Trunk/Fluxys.Cessna/Server/GeneratedArtifacts/EntityG04.cs",
-		"/C/Dev/Cessna/Trunk/Fluxys.Cessna/Server/GeneratedArtifacts/EntityG05.cs",
-		"/C/Dev/Cessna/Trunk/Fluxys.Cessna/Server/GeneratedArtifacts/EntityG06.cs",
-		"/C/Dev/Cessna/Trunk/src/Core/Setup/Engine/Install/app.template.config.xml",
-		"/C/Dev/vagrant/dsc/AddMyFile/localhost.mof",
-		"/C/Dev/DevoSpace/Publish/devospace-package/tools/Devospace.Web.SetParameters.xml",
-		"/C/Dev/DevoSpace/Publish/devospace-package/tools/Devospace.Web.deploy.cmd",
-		"/C/Dev/DevoSpace/Publish/devospace-package/tools/Devospace.Web.SourceManifest.xml",
-		"/C/Dev/DevoSpace/Publish/chocolateytemplates-master/chocolateytemplates-master/_templates/chocolatey/tools/chocolateyInstall.ps1"
+		"/C/ProgramData/chocolatey/lib/git.1.9.4.20140929/tools/chocolateyInstall.ps1"
 	],
 	"find":
 	{
@@ -467,9 +659,31 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			",",
+			"AccelerometerAnalogOption",
+			"http",
+			"this",
+			"motor",
+			"that",
+			"RequestHandler",
+			"use",
+			"express",
+			"RequestHandler",
+			".RequestHandler",
+			"socket",
+			"listen",
+			"MODES",
+			"Board",
+			"Response",
+			"EventEmitter",
+			"within",
+			"on:",
+			"on=",
+			"on =",
+			"on",
 			"this.left",
 			"left",
 			"HIGH",
@@ -522,55 +736,151 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "public/services/motorService.js",
+					"file": "app.ts",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 617,
+						"buffer_size": 3406,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								118,
-								128
+								2101,
+								2101
 							]
 						],
 						"settings":
 						{
 							"apply_syntax_touched": true,
-							"auto_complete": false,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"open_with_edit": true,
+							"syntax": "Packages/TypeScript/TypeScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"use_tab_stops": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 472.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "server.js",
+					"file": "lib/express.d.ts",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1639,
+						"buffer_size": 37901,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1463,
-								1486
+								404,
+								404
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"syntax": "Packages/TypeScript/TypeScript.tmLanguage",
+							"tab_size": 6,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "node_modules/express/Readme.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4406,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"syntax": "Packages/Markdown/Markdown.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "lib/body-parser.d.ts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4880,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1319,
+								1319
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"syntax": "Packages/TypeScript/TypeScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "robot.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6467,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1052,
+								1052
 							]
 						],
 						"settings":
@@ -582,27 +892,153 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 399.0,
+						"translation.y": 342.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "motor.js",
+					"buffer": 5,
+					"file": "radar.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2053,
+						"buffer_size": 2104,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								850,
-								807
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"auto_complete": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 17,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1896,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1218,
+								1218
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"default_dir": "C:\\Dev\\arduino\\johnny5",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 456.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 19,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "lib/socketio.d.ts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 21495,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1251,
+								1251
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"syntax": "Packages/TypeScript/TypeScript.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 860.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "lib/johnny-five.d.ts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 17109,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								466,
+								491
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"syntax": "Packages/TypeScript/TypeScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true,
+							"use_tab_stops": false
+						},
+						"translation.x": 27.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "server.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1937,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								131,
+								131
 							]
 						],
 						"settings":
@@ -621,172 +1057,111 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "motor.ts",
+					"buffer": 10,
+					"file": "accelerometer.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1707,
+						"buffer_size": 1389,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								584,
-								584
+								737,
+								831
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 154.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "lib/node.d.ts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 86585,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								15383,
+								15364
 							]
 						],
 						"settings":
 						{
 							"apply_syntax_touched": true,
 							"syntax": "Packages/TypeScript/TypeScript.tmLanguage",
-							"translate_tabs_to_spaces": false,
-							"use_tab_stops": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
-						"translation.y": 228.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "test.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 44,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								44,
-								44
-							]
-						],
-						"settings":
-						{
-							"apply_syntax_touched": true,
-							"auto_complete": false,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4837,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4837,
-								4837
-							]
-						],
-						"settings":
-						{
-							"apply_syntax_touched": true,
-							"default_dir": "C:\\Dev\\arduino\\johnny5",
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.x": -0.0,
+						"translation.y": 7054.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "public/index.html",
+					"buffer": 12,
+					"file": "app.js.map",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4503,
+						"buffer_size": 3599,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3811,
-								3811
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"apply_syntax_touched": true,
-							"auto_complete": false,
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1767.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "/C/tools/cygwin/home/Geoffrey/ubuntuDesktop/provision.sh",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 647,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								642,
-								642
-							]
-						],
-						"settings":
-						{
-							"apply_syntax_touched": true,
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "public/dashboard/dashboardcontroller.js",
+					"buffer": 13,
+					"file": "app.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 785,
+						"buffer_size": 3113,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								514,
-								514
+								2835,
+								2835
 							]
 						],
 						"settings":
@@ -801,16 +1176,108 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
-					"file": "/C/tools/cygwin/home/Geoffrey/ubuntu64/provision.sh",
+					"buffer": 14,
+					"file": "node_modules/socket.io/lib/index.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 452,
+						"buffer_size": 8659,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								864,
+								864
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "motor.ts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1715,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1223,
+								1223
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"syntax": "Packages/TypeScript/TypeScript.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 932.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 16,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7231,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7231,
+								7231
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"default_dir": "C:\\Dev\\arduino\\johnny5",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 18,
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": ".bowerrc",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 184,
 						"regions":
 						{
 						},
@@ -824,20 +1291,84 @@
 						"settings":
 						{
 							"apply_syntax_touched": true,
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "/C/Dev/arduino/johnny5_old/radar.ts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1125,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								385,
+								385
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"syntax": "Packages/TypeScript/TypeScript.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
 					"type": "text"
 				}
 			]
 		},
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 19,
+					"file": "robot.ts",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5451,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4490,
+								4490
+							]
+						],
+						"settings":
+						{
+							"apply_syntax_touched": true,
+							"history_list_is_closing": true,
+							"syntax": "Packages/TypeScript/TypeScript.tmLanguage",
+							"translate_tabs_to_spaces": false,
+							"use_tab_stops": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1305.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -869,7 +1400,7 @@
 		"cols":
 		[
 			0.0,
-			0.782634730539,
+			0.528657664552,
 			1.0
 		],
 		"rows":
@@ -905,7 +1436,7 @@
 	},
 	"output.exec":
 	{
-		"height": 208.0
+		"height": 95.0
 	},
 	"output.find_results":
 	{
@@ -914,6 +1445,10 @@
 	"output.git":
 	{
 		"height": 124.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 240.0
 	},
 	"pinned_build_system": "Packages/TypeScript/TypeScript.sublime-build",
 	"project": "johnny5.sublime-project",
@@ -928,6 +1463,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"express",
+				"lib\\express.d.ts"
+			]
 		],
 		"width": 0.0
 	},
@@ -957,7 +1496,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 250.0,
+	"side_bar_width": 271.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
