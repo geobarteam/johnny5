@@ -64,6 +64,10 @@ var Server = (function () {
                 console.log('radar data:' + data);
                 socket.emit('radar', data);
             });
+            that.accelerometer.on('change', function (data) {
+                console.log('accelerometer data:' + data);
+                socket.emit('accelerometer', data);
+            });
         });
         console.log('Waiting for connection');
     };

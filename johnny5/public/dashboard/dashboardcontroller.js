@@ -10,6 +10,10 @@
 
         mySocket.on('radar', function(data){
             $scope.radarState = data;
+        }) ; 
+
+        mySocket.on('accelerometer', function(data){
+            $scope.accelerometerState = data;
         }) ;   
 
         $scope.forward = function() {

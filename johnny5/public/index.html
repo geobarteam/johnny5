@@ -31,6 +31,9 @@
           </div>
           <div class="collapse navbar-collapse" id="navegationBar">
             <ul class="nav navbar-nav">
+              <li  id="linkAccelerometer">
+                <a href="#" ng-click="accelerometer_show=!accelerometer_show">Acceleration</a>
+              </li>
               <li  id="linkRadar" class="active">
                 <a href="#" ng-click="radar_show=!radar_show">Radar</a>
               </li>
@@ -89,7 +92,30 @@
           </p>
         </div>
       </div>
-
+      <div class="row" id="containerAccelerometer" ng-show="accelerometer_show">
+        <div class="col-lg-12">
+          <p class="text-center">
+            <i class="fa fa-lightbulb-o jumbotron-icon" id="led"></i>
+            <br/>
+            <label>Acceleration:</label><span ng-bind="accelerometerState.acceleration"></span>
+            <br/>
+            <label>Inclination:</label><span ng-bind="accelerometerState.inclination"></span>
+            <br/>
+            <label>Orientation:</label><span ng-bind="accelerometerState.orientation"></span>
+            <br/>
+            <label>X:</label><span ng-bind="accelerometerState.x"></span>
+            <br/>
+            <label>Y:</label><span ng-bind="accelerometerState.y"></span>
+              <br/>
+              <label>Z:</label><span ng-bind="accelerometerState.z"></span>
+              <br/>
+            <label>Pitch:</label><span ng-bind="accelerometerState.pitch"></span>
+            <br/>
+            <label>Roll:</label><span ng-bind="accelerometerState.roll"></span>
+          </p>
+        </div>
+      </div>
+      
       <div class="row" id="containerMotor" ng-show="motor_show">
         <div class="col-lg-12">
           <p class="text-center">

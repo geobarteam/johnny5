@@ -154,7 +154,7 @@ var AccelerometerOption = (function () {
     function AccelerometerOption() {
         this.controller = "MMA7361";
         this.pins = ["A0", "A1", "A2"];
-        this.sleepPin = 13;
+        this.sleepPin = 10;
         this.autoCalibrate = true;
     }
     return AccelerometerOption;
@@ -175,6 +175,7 @@ var Accelerometer = (function (_super) {
                 that.data.orientation = this.orientation;
                 that.data.x = this.x;
                 that.data.y = this.y;
+                that.data.z = this.z;
                 that.data.pitch = this.pitch;
                 that.data.roll = this.roll;
                 that.emit("change", that.data);

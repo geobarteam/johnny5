@@ -195,7 +195,7 @@ export interface IAccelerometer extends NodeJS.EventEmitter{
 export class AccelerometerOption implements five.AccelerometerMMA7361Option{
 	controller = "MMA7361";
     pins = ["A0", "A1", "A2"];
-    sleepPin= 13;
+    sleepPin= 10;
     autoCalibrate= true;
 }
 
@@ -218,6 +218,7 @@ export class Accelerometer extends Emitter.EventEmitter implements IAcceleromete
 				that.data.orientation = this.orientation;
 				that.data.x = this.x;
 				that.data.y = this.y;
+				that.data.z = this.z;
 				that.data.pitch = this.pitch;
 				that.data.roll = this.roll;
 				that.emit("change", that.data)
