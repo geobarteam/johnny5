@@ -1,0 +1,2 @@
+C:\Dev\arduino\johnny5\obj\Debug\Johnny5.njsprojResolveAssemblyReference.cache
+C:\Dev\arduino\johnny5\bin\Microsoft.NodejsTools.WebRole.dll
