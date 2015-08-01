@@ -71,6 +71,6 @@ var Server = (function () {
 })();
 exports.Server = Server;
 // main
-var server = new Server("com7", 3000);
+var server = new Server("com3", 3000);
 server.startBoard();
 server.startListening();

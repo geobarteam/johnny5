@@ -22,7 +22,8 @@ var Radar = (function (_super) {
     function Radar(board) {
         this.radarData = new RadarData(0, 0, 0);
         this.board = board;
-        this.board.on("ready", this.initializeHandler);
+        console.log(this.board);
+        this.board.on("ready", this.initializeHandler());
         _super.call(this);
     }
     Radar.prototype.getData = function () {

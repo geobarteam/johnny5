@@ -14,6 +14,7 @@ export class RadarData {
 
 export interface IRadar extends NodeJS.EventEmitter {
 	getData(): RadarData;
+	initializeHandler(): any;
 }
 
 export class Radar extends Emitter.EventEmitter implements IRadar{
@@ -27,7 +28,8 @@ export class Radar extends Emitter.EventEmitter implements IRadar{
 	public constructor(board:five.Board) {
 		this.radarData = new RadarData(0, 0, 0);
 		this.board = board;
-		this.board.on("ready", this.initializeHandler);
+		console.log(this.board);
+		this.board.on("ready", this.initializeHandler());
 		super();
 	}
 
@@ -35,7 +37,7 @@ export class Radar extends Emitter.EventEmitter implements IRadar{
 		return this.radarData;
 	}
 
-	private initializeHandler(){
+	public initializeHandler(){
 		var radar = this;
 
 		return function(){ 

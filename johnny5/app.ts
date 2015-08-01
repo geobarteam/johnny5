@@ -34,6 +34,7 @@ export class Server {
         this.motor = new robot.Motor(this.board);
         this.radar = new robot.Radar(this.board);  
         this.accelerometer = new robot.Accelerometer(this.board, new robot.AccelerometerOption());
+        
     }  
 
     public startListening(){
@@ -97,6 +98,6 @@ export class Server {
 }
 
 // main
-var server = new Server("com7", 3000);
+var server = new Server("com3", 3000);
 server.startBoard();
 server.startListening();
