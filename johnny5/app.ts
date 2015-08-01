@@ -4,13 +4,20 @@
 ///<reference path=".\lib\body-parser.d.ts"/>
 ///<reference path=".\lib\socketio.d.ts"/>
 ///<reference path=".\robot.ts"/>
+///<reference path=".\radar.ts"/>
+///<reference path=".\motor.ts"/>
+///<reference path=".\accelerometer.ts"/>
 
 import express = require('express');  
 import five = require("johnny-five");  
 import sio = require('socket.io');
 import http = require('http');
 import bodyParser = require('body-parser');
-import robot = require("./robot");
+import accelerometer = require("./accelerometer");
+import radar = require("./radar");
+import motor = require("./motor");
+
+var comport = "com3";
 
 export class Server {
     app: express.Application;
@@ -18,9 +25,9 @@ export class Server {
     io: SocketIO.Server;
     port: number;
     board: five.Board;
-    motor: robot.IMotor;
-    radar: robot.IRadar;
-    accelerometer: robot.IAccelerometer;
+    motor: motor.IMotor;
+    radar: radar.IRadar;
+    accelerometer: accelerometer.IAccelerometer;
     tcpPort: number;
     serialPort: string;
 
@@ -30,10 +37,10 @@ export class Server {
         this.app = express();
         this.httpServer = require('http').createServer(this.app);
         this.io = sio.listen(this.httpServer);
-        this.board = new five.Board({port:this.serialPort});
-        this.motor = new robot.Motor(this.board);
-        this.radar = new robot.Radar(this.board);  
-        this.accelerometer = new robot.Accelerometer(this.board, new robot.AccelerometerOption());
+        this.board = new five.Board({ port: this.serialPort });
+        this.motor = new motor.Motor(this.board);
+        this.radar = new radar.Radar(this.board);
+        this.accelerometer = new accelerometer.Accelerometer(this.board, new accelerometer.AccelerometerOption());
         
     }  
 
@@ -103,6 +110,6 @@ export class Server {
 }
 
 // main
-var server = new Server("com3", 3000);
+var server = new Server(comport, 3000);
 server.startBoard();
 server.startListening();

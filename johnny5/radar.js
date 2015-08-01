@@ -1,4 +1,3 @@
-///<reference path=".\Contracts.ts" />
 ///<reference path=".\lib\node.d.ts"/>
 ///<reference path=".\lib\johnny-five.d.ts"/>
 var __extends = (this && this.__extends) || function (d, b) {
@@ -9,50 +8,63 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var five = require('johnny-five');
 var Emitter = require('events');
-var Johnny5;
-(function (Johnny5) {
-    var RadarData = (function () {
-        function RadarData(LeftValue, MiddleValue, RightValue) {
-            this.LeftValue = LeftValue;
-            this.MiddleValue = MiddleValue;
-            this.RightValue = RightValue;
-        }
-        return RadarData;
-    })();
-    Johnny5.RadarData = RadarData;
-    var Radar = (function (_super) {
-        __extends(Radar, _super);
-        function Radar() {
-            this.radarData = new RadarData(0, 0, 0);
-            _super.call(this);
-        }
-        Object.defineProperty(Radar.prototype, "Data", {
-            get: function () {
-                return this.radarData;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Radar.prototype.startListening = function () {
-            this.leftPing = new five.Ping(11);
-            this.middlePing = new five.Ping(12);
-            this.rightPing = new five.Ping(13);
-            var that = this;
-            this.leftPing.on("change", function () {
-                that.radarData.LeftValue = this.cm;
-                that.emit("change", that.radarData);
+var RadarData = (function () {
+    function RadarData(LeftValue, MiddleValue, RightValue) {
+        this.LeftValue = LeftValue;
+        this.MiddleValue = MiddleValue;
+        this.RightValue = RightValue;
+    }
+    return RadarData;
+})();
+exports.RadarData = RadarData;
+var Radar = (function (_super) {
+    __extends(Radar, _super);
+    function Radar(board) {
+        this.radarData = new RadarData(0, 0, 0);
+        this.board = board;
+        console.log(this.board);
+        this.board.on("ready", this.initializeHandler());
+        _super.call(this);
+    }
+    Radar.prototype.getData = function () {
+        return this.radarData;
+    };
+    Radar.prototype.initializeHandler = function () {
+        var radar = this;
+        return function () {
+            console.log('Arduino connected');
+            for (var i = 5; i <= 8; i++) {
+                radar.board.pinMode(i, PinMode.OUTPUT);
+            }
+            radar.leftPing = new five.Ping(11);
+            radar.middlePing = new five.Ping(12);
+            radar.rightPing = new five.Ping(13);
+            radar.leftPing.on("change", function () {
+                radar.radarData.LeftValue = this.cm;
+                radar.emit("change", radar.radarData);
             });
-            this.middlePing.on("change", function () {
-                that.radarData.MiddleValue = this.cm;
-                that.emit("change", that.radarData);
+            radar.middlePing.on("change", function () {
+                radar.radarData.MiddleValue = this.cm;
+                radar.emit("change", radar.radarData);
             });
-            this.rightPing.on("change", function () {
-                that.radarData.RightValue = this.cm;
-                that.emit("change", that.radarData);
+            radar.rightPing.on("change", function () {
+                radar.radarData.RightValue = this.cm;
+                radar.emit("change", radar.radarData);
             });
         };
-        return Radar;
-    })(Emitter.EventEmitter);
-    Johnny5.Radar = Radar;
-})(Johnny5 = exports.Johnny5 || (exports.Johnny5 = {}));
-module.exports = Johnny5.Radar;
+    };
+    return Radar;
+})(Emitter.EventEmitter);
+exports.Radar = Radar;
+var PinMode = (function () {
+    function PinMode() {
+    }
+    PinMode.INPUT = 0;
+    PinMode.OUTPUT = 1;
+    PinMode.ANALOG = 2;
+    PinMode.PWM = 3;
+    PinMode.SERVO = 4;
+    return PinMode;
+})();
+exports.PinMode = PinMode;
+//# sourceMappingURL=radar.js.map

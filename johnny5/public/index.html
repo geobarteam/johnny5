@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en" ng-app="johnny5" class="no-js"> <!--<![endif]-->  
 <head>  
   <meta charset="utf-8">
@@ -82,8 +82,8 @@
     <div class="container" id="main">
 
       <div class="row" id="containerRadar" ng-show="radar_show">
-        <div class="col-lg-12">
-          <p class="text-center">
+        <div class="col-lg-4">
+          <p class="text-left">
             <i class="fa fa-lightbulb-o jumbotron-icon" id="led"></i>
             <br/>
             <label>Left:</label><span ng-bind="radarState.LeftValue"></span>
@@ -93,8 +93,8 @@
         </div>
       </div>
       <div class="row" id="containerAccelerometer" ng-show="accelerometer_show">
-        <div class="col-lg-12">
-          <p class="text-center">
+        <div class="col-lg-4">
+          <p class="text-left">
             <i class="fa fa-lightbulb-o jumbotron-icon" id="led"></i>
             <br/>
             <label>Acceleration:</label><span ng-bind="accelerometerState.acceleration"></span>
@@ -117,8 +117,8 @@
       </div>
       
       <div class="row" id="containerMotor" ng-show="motor_show">
-        <div class="col-lg-12">
-          <p class="text-center">
+        <div class="col-lg-4">
+          <p class="text-left">
             <i class="fa fa-cog jumbotron-icon" id="motor"><span ng-bind="motorState"></span>
             </i>
 

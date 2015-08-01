@@ -4,11 +4,17 @@
 ///<reference path=".\lib\body-parser.d.ts"/>
 ///<reference path=".\lib\socketio.d.ts"/>
 ///<reference path=".\robot.ts"/>
+///<reference path=".\radar.ts"/>
+///<reference path=".\motor.ts"/>
+///<reference path=".\accelerometer.ts"/>
 var express = require('express');
 var five = require("johnny-five");
 var sio = require('socket.io');
 var bodyParser = require('body-parser');
-var robot = require("./robot");
+var accelerometer = require("./accelerometer");
+var radar = require("./radar");
+var motor = require("./motor");
+var comport = "com3";
 var Server = (function () {
     function Server(serialPort, tcpPort) {
         this.serialPort = serialPort;
@@ -17,9 +23,9 @@ var Server = (function () {
         this.httpServer = require('http').createServer(this.app);
         this.io = sio.listen(this.httpServer);
         this.board = new five.Board({ port: this.serialPort });
-        this.motor = new robot.Motor(this.board);
-        this.radar = new robot.Radar(this.board);
-        this.accelerometer = new robot.Accelerometer(this.board, new robot.AccelerometerOption());
+        this.motor = new motor.Motor(this.board);
+        this.radar = new radar.Radar(this.board);
+        this.accelerometer = new accelerometer.Accelerometer(this.board, new accelerometer.AccelerometerOption());
     }
     Server.prototype.startListening = function () {
         var that = this;
@@ -75,6 +81,7 @@ var Server = (function () {
 })();
 exports.Server = Server;
 // main
-var server = new Server("com3", 3000);
+var server = new Server(comport, 3000);
 server.startBoard();
 server.startListening();
+//# sourceMappingURL=app.js.map
