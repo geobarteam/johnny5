@@ -1,0 +1,34 @@
+{
+  "name": "johnny5",
+  "version": "1.0.0",
+  "description": "Johnny5 implementation for arduino robot",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.13.2",
+    "events": "^1.0.2",
+    "bower": "^1.4.1",
+    "express": "^4.13.0",
+    "serialport": "^1.7.4",
+    "johnny-five": "^0.8.81",
+    "socket.io": "^1.3.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geobarteam/johnny5.git"
+  },
+  "keywords": [
+    "arduino",
+    "johnny5"
+  ],
+  "author": "Geoffrey Vandiest",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/geobarteam/johnny5/issues"
+  },
+  "homepage": "https://github.com/geobarteam/johnny5#readme"
+}
